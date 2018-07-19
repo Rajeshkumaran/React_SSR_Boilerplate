@@ -7,5 +7,6 @@ body {
   margin: auto;
 }
 #logo{
-  background: url('/assets/react.png');
+  border:1px solid red;
+  width:200px;
 }

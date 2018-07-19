@@ -36,6 +36,7 @@ module.exports = {
     }
     ]
   },
+  target: 'node',
   devServer: {
     port: 3000,
     open: true,

@@ -3,10 +3,12 @@ import {renderToString} from 'react-dom/server'
 import App from '../client/App'
 const express = require('express');
 const os = require('os');
+import fs from 'fs';
 
 const app = express();
 
 // app.use(express.static('dist'));
+app.use('/assets',express.static('assets'));
 app.get('/',(req,res)=>{
 
     const html = renderToString(<App/>)
