@@ -6,3 +6,6 @@ body {
   text-align: center;
   margin: auto;
 }
+#logo{
+  background: url('/assets/react.png');
+}
