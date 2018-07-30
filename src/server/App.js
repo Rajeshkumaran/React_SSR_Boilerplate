@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import {basename,join} from 'path';
 import fs from 'fs';
 import {Provider} from 'react-redux';
-import Navbar  from '../shared/navbar';
+import Navbar  from '../shared/Components/Navbar';
+import  {StaticRouter} from 'react-router-dom';
 
 
 //console.log(styles);
@@ -17,13 +18,13 @@ export default class App extends Component {
     return (
       <html>
         <head>
-          <script src='/test/bundle.js'></script>
+          <script src='/test/bundle.js' defer></script>
           {/* <style dangerouslySetInnerHTML={{__html:style}}/> */}
         </head>
-      <div>
-       <h1>Hi</h1>
-       <img id='logo' src='/assets/home.png'/>
-       <Navbar/>
+      <div id='root'>
+      <StaticRouter>
+         <Navbar/>
+      </StaticRouter>
       </div>
       </html>
     );

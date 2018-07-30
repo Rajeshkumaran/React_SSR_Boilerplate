@@ -8,7 +8,6 @@ module.exports = {
   entry: "./src/client/index.js",
   output: {
     path: path.join(__dirname, outputDirectory),
-    publicPath:'/assets/',
     filename: "bundle.js"
   },
   module: {
@@ -38,7 +37,7 @@ module.exports = {
   },
   target: 'node',
   devServer: {
-    port: 3000,
+    port: 3011,
     open: true,
     proxy: {
       "/api": "http://localhost:8080"
