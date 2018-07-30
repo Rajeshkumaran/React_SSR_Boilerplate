@@ -5,7 +5,13 @@ import Aboutus from './About_us';
 
 export default class Navbar extends React.Component {
 
+    // componentDidMount(){
+    //     console.log('componentDidMount called')
+    //     // fetch('https://jsonplaceholder.typicode.com/posts/10').then(res=>res.json()).then(data=>console.log(data))
+    // }
+
     render() {
+        console.log('navbar called in server')
         return (
         
                 <div>
