@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import {BrowserRouter,StaticRouter,Route,Link} from 'react-router-dom';
 import Home from './Home';
 import Aboutus from './About_us';
+require('./NavBar.css')
 
 export default class Navbar extends React.Component {
 
@@ -14,13 +15,18 @@ export default class Navbar extends React.Component {
         console.log('navbar called in server')
         return (
         
-                <div>
+                <div className='NavBar'>
                     <ul>
-                        <Link to='/Home'>Home</Link>
-                        <Link to='/About'>About</Link>
+                        <li><Link to='/Home'>Home</Link></li>
+                        <li><Link to='/About'>About</Link></li>
+                        <li>Stars</li>
+                        <li><Link to='/Login'>Login</Link></li>
+                        <li><Link to='/Signup'>Sign up</Link></li>
                     </ul>
+                    <div className='ComponentDisplay'>
                     <Route exact path='/Home' component={Home} />
                     <Route exact path='/About' component={Aboutus} />
+                    </div>
                 </div>
         
         

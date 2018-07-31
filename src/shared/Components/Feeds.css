@@ -1,0 +1,31 @@
+.FeedDisplay{
+    border:1px solid black;
+    position: relative;
+    top:20px;
+    border-radius:2px;
+    left:20px;
+    margin-top:10px;
+
+}
+.FeedRequestDiv{
+    border-bottom: 1px solid black;
+    padding:20px;
+    /* border:1px solid red; */
+}
+.FeedResponseDiv{
+    /* border-bottom: 1px solid black; */
+    padding:20px;
+    display: none;
+    
+}
+.FeedSubmissionDiv{
+
+}
+.FeedReplyButton{
+    position:relative;
+    width:40px;
+    float:right;
+    top:-5px;
+    background: transparent;
+    border:transparent;
+}

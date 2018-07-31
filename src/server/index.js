@@ -12,13 +12,15 @@ import routes from '../Routes/routes';
 import {matchPath} from 'react-router-dom';
 import {Provider} from 'react-redux';
 import {createStore} from 'redux';
-import {setInitialState} from '../shared/Reducers/MainReducer';
+// import {setInitialState} from '../shared/Reducers/MainReducer';
 import MainReducer from '../shared/Reducers/MainReducer';
+import PageHitReducer from '../shared/Reducers/PageHitReducer';
 import { combineReducers } from 'redux';
 const app = express();
 app.use(cors());
 const AllReducers = combineReducers({
-    MainReducer : MainReducer
+    MainReducer : MainReducer,
+    PageHitReducer : PageHitReducer
 })
 
 app.use('/assets', express.static('assets'));
@@ -34,10 +36,26 @@ app.get("*", (req, res) => {
 
    promise.fetch_Page().then((data)=>{
 
-    setInitialState(data);
+    // setInitialState(data);
     const store = createStore(AllReducers)
-    const html = renderToString(<Provider store={store}><App url={req.url}/></Provider> )
-        res.send(`${html}`)
+    store.dispatch({type:promise.actiontype,payload:data})
+    const preloaded_State = store.getState();
+    var test = JSON.stringify(preloaded_State).replace(/</g, '\\u003c');
+    console.log(test)
+    console.log(store.getState())
+    const html = renderToString(<Provider store={store}><App url={req.url} initial_data={preloaded_State}/></Provider> )
+    //     res.send(`<html>
+    //     <head>
+    //       <script src='/test/bundle.js' defer></script>
+    //       <script>window.__PRELOADED_STATE__ = ${JSON.stringify(preloaded_State).replace(/</g, '\\u003c')}</script>
+    //     </head>
+    //     <body>
+    //       <div id='root'>
+    //       ${html} 
+    //      </div>
+    //   </body>
+    //   </html>`)
+     res.send(`${html}`)
 
    })
  

@@ -7,28 +7,33 @@ import  {StaticRouter} from 'react-router-dom';
 import {BrowserRouter,Route,Link} from 'react-router-dom';
 import Home from '../shared/Components/Home';
 import Aboutus from '../shared/Components/About_us';
-
+import serialize from 'serialize-javascript';
 
 //console.log(styles);
 const style = fs.readFileSync(
-  join(__dirname,'./app.css'),
+  join('/home/rajesh_k/Documents/simple-react-full-stack/src/shared/Components/NavBar.css'),
   'utf-8',
 );
+var test;
 export default class App extends Component {
   
   
 
 
   render() {
+
+    test = JSON.stringify(this.props.initial_data).replace(/</g, '\\u003c')
     return (
       <html>
         <head>
+          <style dangerouslySetInnerHTML={{__html:style}}></style>
           <script src='/test/bundle.js' defer></script>
+          <script dangerouslySetInnerHTML={{__html: `window.__PRELOADED_STATE__ = ${JSON.stringify(this.props.initial_data)}`}}></script>
         </head>
         <body>
           <div id='root'>
           <StaticRouter location={this.props.url} context={{}}>
-            <Navbar data={this.props.data}/>
+            <Navbar/>
         </StaticRouter> 
          </div>
       </body>

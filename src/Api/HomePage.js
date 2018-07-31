@@ -3,19 +3,19 @@ const app = express();
 var Data=[
 
     {
-        "Product":"Bike1",
-        "id":1,
-        "Price":10000
+        "Username":"Sai",
+        "Userid":1,
+        "Request":'Can you send this image?'
     },
     {
-        "Product":"Bike2",
-        "id":2,
-        "Price":10000
+        "Username":"Bike1",
+        "Userid":2,
+        "Request":'Can you Answer for this question?'
     },
     {
-        "Product":"Bike3",
-        "id":3,
-        "Price":10000
+        "Username":"Bike1",
+        "Userid":3,
+        "Request":'Can you send this song?'
     }
 
 ]
