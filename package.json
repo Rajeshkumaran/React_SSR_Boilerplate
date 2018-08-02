@@ -10,14 +10,14 @@
     "client": "webpack-dev-server --mode development --devtool inline-source-map --hot",
     "server": "nodemon src/server/index.js",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "magic":"cooncurrently \"npm run build\" \"npm run development\"",
-    "build1":"webpack --mode production",
+    "magic": "cooncurrently \"npm run build\" \"npm run development\"",
+    "build1": "webpack --mode production",
     "development1": "NODE_PATH=./src BABEL_ENV=node NODE_ENV=development node ./src/server/server.babel.js"
-   
   },
   "author": "Sandeep Raveesh",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.18.3",
     "express": "^4.16.3",
     "fs": "0.0.1-security",
     "react": "^16.3.1",

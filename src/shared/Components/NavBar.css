@@ -37,3 +37,9 @@ a{
     text-decoration: none;
     color:white;
 }
+#LoginLi{
+    float:right;
+}
+#SignupLi{
+    float:right;
+}

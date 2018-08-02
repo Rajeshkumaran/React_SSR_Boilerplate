@@ -20,8 +20,8 @@ export default class Navbar extends React.Component {
                         <li><Link to='/Home'>Home</Link></li>
                         <li><Link to='/About'>About</Link></li>
                         <li>Stars</li>
-                        <li><Link to='/Login'>Login</Link></li>
-                        <li><Link to='/Signup'>Sign up</Link></li>
+                        <li id='LoginLi'><Link to='/Login'>Login</Link></li>
+                        <li id='SignupLi'><Link to='/Signup'>Sign up</Link></li>
                     </ul>
                     <div className='ComponentDisplay'>
                     <Route exact path='/Home' component={Home} />

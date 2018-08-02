@@ -26,8 +26,7 @@ class Home extends React.Component{
         })
         return(
             <div id='home'>
-            This is Home page
-            <Feeds/>
+               <Feeds/>
             </div>
 
         );
