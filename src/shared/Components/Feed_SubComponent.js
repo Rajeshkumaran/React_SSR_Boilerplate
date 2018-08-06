@@ -1,5 +1,6 @@
 import React from 'react';
-require('./Feeds.css');
+import {connect} from 'react-redux';
+
 class FeedSubComponent extends React.Component{
 
     constructor(props){
@@ -8,6 +9,7 @@ class FeedSubComponent extends React.Component{
             open:0,
             textareaContent:''
         }
+        
     }
     
 
@@ -19,6 +21,15 @@ class FeedSubComponent extends React.Component{
         console.log('Reply clicked ...'+this.state.open)
     }
     
+    Clear = ()=>{
+
+
+        console.log('Clear called'+this.props.data.RecieverId,this.props.data.PostId);
+        var data = [this.props.data.RecieverId,this.props.data.PostId];
+       
+        this.props.ClearFeed(data)
+    }
+
     ContentHandler = (event) =>{
         console.log('contentHandler called !!!',event.target.value);
         var value = event.target.value;
@@ -59,6 +70,7 @@ class FeedSubComponent extends React.Component{
                 <img className='ProfilePictureDisplay' src={this.props.data.Profile_Picture} style={{width:'30px',height:'30px'}}/>
                 <span className='UsernameSpan'>{this.props.data.Recievername}</span>
                 <span className='PostDateSpan'>Posted@{this.props.data.Post_Date}</span>
+                <button className='ClearButton' onClick={this.Clear}>Clear</button>
            </div>
            <div className='FeedRequestDiv'>
             {this.props.data.Request}
@@ -93,4 +105,17 @@ class FeedSubComponent extends React.Component{
 
 
 }
-export default FeedSubComponent;
+
+function mapStateToProps(state){
+    return {
+        MainReducer : state.MainReducer,
+        PageHitReducer : state.PageHitReducer
+    }
+
+}
+function matchDispatchToProps(dispatch){
+    return {
+        ClearFeed : (data) =>dispatch({type:'CLEAR_FEED',payload:data})
+    }
+}
+export default connect(mapStateToProps,matchDispatchToProps)(FeedSubComponent);

@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-require('./about.css');
+require('../Styles/about.web.css');
 class AboutUs extends React.Component{
 
 
@@ -8,7 +8,7 @@ class AboutUs extends React.Component{
 
         console.log(this.props)
          this.props.PageHitReducer['ABOUT_REQUEST']==0? fetch('https://jsonplaceholder.typicode.com/posts/1').then(response=>response.json()).then(data=>console.log(data)):null
-
+         this.props.CURRENT_LOCATION(window.location.href);
     }
 
 
@@ -25,4 +25,9 @@ function mapStateToProps(state){
         PageHitReducer : state.PageHitReducer
     }
 }
-export default connect(mapStateToProps)(AboutUs);
+function matchDispatchToProps(dispatch){
+    return{
+        CURRENT_LOCATION : (data)=>dispatch({type:'CURRENT_LOCATION',payload:data})
+    }
+}
+export default connect(mapStateToProps,matchDispatchToProps)(AboutUs);

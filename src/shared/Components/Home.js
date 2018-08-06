@@ -1,7 +1,7 @@
 import React from 'react';
 import Feeds from './Feeds';
 import {connect} from 'react-redux';
-require('./home.css')
+require('../Styles/home.web.css')
 var d;
 class Home extends React.Component{
 
@@ -11,7 +11,9 @@ class Home extends React.Component{
     componentDidMount(){
 
         console.log(this.props)
+
          this.props.PageHitReducer['HOME_REQUEST']==0? fetch('https://jsonplaceholder.typicode.com/posts/1').then(response=>response.json()).then(data=>console.log(data)):null
+          this.props.CURRENT_LOCATION(window.location.href);
 
     }
 
@@ -40,4 +42,9 @@ function mapStateToProps(state){
         PageHitReducer : state.PageHitReducer
     }
 }
-export default connect(mapStateToProps)(Home);
+function matchDispatchToProps(dispatch){
+    return{
+        CURRENT_LOCATION : (data)=>dispatch({type:'CURRENT_LOCATION',payload:data})
+    }
+}
+export default connect(mapStateToProps,matchDispatchToProps)(Home);

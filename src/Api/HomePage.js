@@ -15,7 +15,8 @@ var Data=[
         "Profile_Picture":'https://www.eff.org/files/banner_library/coder-cat-2.png',
         "PostId":"001",
         "ReplyCount":0,
-        "Replies":[]
+        "Replies":[],
+        "Show":1
     },
     {
         "Recievername":"Bike1",
@@ -25,7 +26,8 @@ var Data=[
         "Profile_Picture":'https://cdn.dribbble.com/users/788099/screenshots/4135014/programming_kit8-net_1x.png',
         "PostId":"001",
         "ReplyCount":0,
-        "Replies":[]
+        "Replies":[],
+        "Show":1
         
         
 
@@ -38,7 +40,8 @@ var Data=[
         "Profile_Picture":'https://assets.bwbx.io/images/users/iqjWHBFdfxIU/iVP9CQz32fHA/v0/800x-1.jpg',
         "PostId":"001",
         "ReplyCount":0,
-        "Replies":[]
+        "Replies":[],
+        "Show":1
     }
 
 ]
