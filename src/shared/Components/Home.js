@@ -10,7 +10,7 @@ class Home extends React.Component{
     }
     componentDidMount(){
 
-        console.log(this.props)
+        console.log("component did mount in Home",this.props)
 
          this.props.PageHitReducer['HOME_REQUEST']==0? fetch('https://jsonplaceholder.typicode.com/posts/1').then(response=>response.json()).then(data=>console.log(data)):null
           this.props.CURRENT_LOCATION(window.location.href);
@@ -21,11 +21,11 @@ class Home extends React.Component{
 
     render(){
         console.log('home called.....')
-        console.log(this.props.MainReducer)
-        this.props.MainReducer.map((val)=>{
+        // console.log(this.props.MainReducer)
+        // this.props.MainReducer.map((val)=>{
          
-            console.log(val)
-        })
+        //     console.log(val)
+        // })
         return(
             <div id='home'>
                <Feeds/>

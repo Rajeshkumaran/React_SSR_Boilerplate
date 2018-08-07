@@ -9,6 +9,7 @@ class Feeds extends React.Component{
         super(props);
     }
     componentDidMount(){
+        console.log('component did mount in Feeds');
         this.props.CURRENT_LOCATION(window.location.href);
 
     }

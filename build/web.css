@@ -1,0 +1,399 @@
+@import url(https://fonts.googleapis.com/css?family=Do+Hyeon);
+.FeedDisplay{
+    border:1px solid grey;
+    position: relative;
+    top:20px;
+    left:20px;
+    margin-top:10px;
+    box-shadow: 3px 3px 3px grey;
+    border-radius:3px;
+
+}
+.UserDetailsDiv{
+    border-bottom:1px solid black;
+    display: inline-block;
+    height: 50px;
+    width: 100%;
+    
+}
+.ProfilePictureDisplay{
+    position: relative;
+    left:20px;
+    width:30px;
+    height:30px;
+    top:10px;
+    border-radius: 50%;
+}
+.UsernameSpan{
+
+    position: relative;
+    margin-left:30px;
+
+}
+.PostDateSpan{
+margin-left: 10px;
+color:#149186;
+font-size: 13px;
+font-weight: bold;
+}
+.FeedRequestDiv{
+    padding:20px;
+    /* border:1px solid red; */
+}
+.FeedResponseDiv{
+    border-top: 1px solid black;
+    padding:20px;
+    display: none;
+    width:100%;
+    height: 140px;
+    position: relative;
+    
+}
+
+.FeedReplyButton{
+    position:relative;
+    float:right;
+    top:-5px;
+    background: transparent;
+    border:transparent;
+    display: inline-block;
+}
+.AttachmentButton{
+    position: relative;
+    display: inline-block;
+    float: right;
+    top: -3px;
+    background: transparent;
+    border: transparent;
+    right: 2px;
+    width:24px;
+    height:23px;
+}
+.AttachmentButton_Img{
+    display: inline-block;
+    /* idth: 25px;w */
+}
+.AttachmentButton_UploadFile{
+    border: 1px solid orange;
+    display: none;
+    position: relative;
+    top: -23px;
+    width: 25px;
+    
+}
+.TextareaSpan{
+    display: block;
+    position: relative;
+    /* top: 20px; */
+    width: 85%;
+}
+.SubmitButtonSpan{
+    position: absolute;
+    top: 20px;
+    width: 70px;
+    display: inline-block;
+    left: 90%;
+    text-align: center;
+}
+.SubmitButton{
+
+    border: 1px solid #6effe1; 
+    background: black;  
+    padding: 7px;
+    color:white;
+
+}
+.SubmitButton:hover{
+    background: #6effe1;
+    color:black;
+    border:1px solid black;
+}
+.SubmitTextarea{
+    width: 100%;
+    height: 50px;
+}
+.CancelButtonSpan{
+    position: absolute;
+    top: 60px;
+    width: 70px;
+    left: 90%;
+    display: inline-block;
+    text-align: center;
+}
+.CancelButton{
+    border: 1px solid #6effe1; 
+    background: black;  
+    padding: 7px;
+    color:white;
+    
+
+}
+.CancelButton:hover{
+    background: #6effe1;
+    color:black;
+    border:1px solid black;
+}
+.ClearButton{
+    position: relative;
+    float: right;
+    border:1px solid black;
+    border-right:1px solid transparent;
+    background: transparent;
+   
+}
+
+.FileUploadSpan{
+    position: relative;
+    width: 100px;
+    border: 1px solid orange;
+    top:20px;
+}
+
+
+.FeedSubComponent{
+position: relative;
+transition:all 0.4s linear;
+}
+
+#home{
+
+    width:90%;
+    
+}
+button{
+    outline:none;
+}
+#about{
+    color:blue;
+    border:2px solid oranges;
+}
+#LoginContainer{
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+}
+#LoginDiv{
+    background: #e2e2e2;
+    z-index:0;
+    display: inline-block;
+    width: 40%;
+    
+    position: relative;
+    text-align: center;
+    box-shadow:13px 13px 13px grey;
+}
+#LoginForm{
+    z-index:1;
+    display: inline-block;
+    position: relative;
+    height:350px;
+    
+
+}
+#LoginLogo{
+    position: relative;
+    top:10px;
+    width:100px;
+    height:100px;
+}
+
+#Username{
+    padding: 10px;
+    width:200px;
+    background: transparent;
+    color:black;
+    border: 0.5px solid black;
+    top:20px;
+    position: relative;
+    border-radius: 5px;
+}
+#password{
+    padding: 10px;
+    width:200px;
+    background: transparent;
+    color:black;
+    border: 0.5px solid black;
+    top:40px;
+    position: relative;
+    border-radius: 5px;
+
+}
+#LoginButton{
+    position: relative;
+    border: 1px solid #6effe1;
+    background: black;
+    color:white;
+    padding: 10px;
+    width:200px;
+    top:60px;
+    border-radius: 5px;
+
+}
+#SignupButton{
+    position: relative;
+    border: 1px solid #6effe1;
+    background: black;
+    color:white;
+    width:200px;
+    top:80px;
+    border-radius: 5px;
+    padding: 10px;
+
+}
+#LoginCloseDiv{
+    position: relative;
+    width: 40%;
+    display: inline-block;
+    top: 20px;
+    z-index: 1; 
+}
+
+#LoginClose{
+   
+    position: relative;
+    float: left;
+    top: 15px;
+    left: 10px;
+    border: 0.5px solid black;
+    background: transparent;
+    border-radius: 40%;
+    padding: 7px;
+
+}
+
+.OverlayDiv{
+    width:100%;
+    height:100%;
+    border:1px solid orange;
+    position:fixed; 
+    top:0;  
+    opacity:0.2;
+    z-index:3;
+    background-color:#6effe1;
+    }
+.LikeTabDiv-inactive{
+        width:0%;
+        height:100%;
+        border:1px solid white;
+        top:0;
+        position: fixed;
+        right: 0;
+        z-index: 4;
+        background:#FFFFFF;
+        animation:reverse-slide 0.4s linear;
+    }
+@keyframes reverse-slide{
+        0%{
+            width:30%;
+        }
+        70%{
+            width:20%;
+        }
+        
+        100%{
+            width:0%;
+        }
+    
+    }
+
+.LikeTabDiv-active{
+    width:30%;
+    height:100%;
+    border:1px solid white;
+    top:0;
+    position: fixed;
+    right: 0;
+    z-index: 4;
+    background:#FFFFFF;
+    animation: slide 0.4s linear;
+    box-shadow: 2px 2px 2px grey;
+}
+@keyframes slide{
+    0%{
+        width:0%;
+    }
+    50%{
+        width:10%;
+    }
+    75%{
+
+        width:20%;
+    }
+    100%{
+        width:30%;
+    }
+
+}
+.LoveContainer{
+    position: relative;
+    left: 10%;
+    top: 30px;
+}
+.LoveCommonGrid{
+    position: relative;
+    padding: 5px;
+    margin-top:15px;
+
+}
+.line{
+    width:70%;
+    padding:0;
+    border:1px solid black;
+}
+
+*{
+    box-sizing: border-box;
+}
+body{
+    background: #FFFFFF;
+    font-family : 'Do Hyeon';
+}
+button{
+    font-family: 'Do Hyeon';
+}
+.Navbar{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+}
+.ComponentDisplay{
+    position:relative;
+    top:100px;
+}
+ul{
+border: 1px solid grey;
+box-shadow: 3px 3px 3px grey;
+background: black;
+color: white;
+position: absolute;
+top: 0;
+left: 0;
+margin:0;
+text-decoration: none;
+padding:10px;
+width:100%;
+}
+ul li{
+    display: inline;
+    margin-left:10px;
+    list-style-type: none
+}
+a{
+    text-decoration: none;
+    color:white;
+}
+#LoginLi{
+    float:right;
+}
+#SignupLi{
+    float:right;
+}
+#StarLi{
+    float:right;
+    position: relative;
+    top:0px;
+}
+

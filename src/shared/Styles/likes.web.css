@@ -1,0 +1,80 @@
+
+.OverlayDiv{
+    width:100%;
+    height:100%;
+    border:1px solid orange;
+    position:fixed; 
+    top:0;  
+    opacity:0.2;
+    z-index:3;
+    background-color:#6effe1;
+    }
+.LikeTabDiv-inactive{
+        width:0%;
+        height:100%;
+        border:1px solid white;
+        top:0;
+        position: fixed;
+        right: 0;
+        z-index: 4;
+        background:#FFFFFF;
+        animation:reverse-slide 0.4s linear;
+    }
+@keyframes reverse-slide{
+        0%{
+            width:30%;
+        }
+        70%{
+            width:20%;
+        }
+        
+        100%{
+            width:0%;
+        }
+    
+    }
+
+.LikeTabDiv-active{
+    width:30%;
+    height:100%;
+    border:1px solid white;
+    top:0;
+    position: fixed;
+    right: 0;
+    z-index: 4;
+    background:#FFFFFF;
+    animation: slide 0.4s linear;
+    box-shadow: 2px 2px 2px grey;
+}
+@keyframes slide{
+    0%{
+        width:0%;
+    }
+    50%{
+        width:10%;
+    }
+    75%{
+
+        width:20%;
+    }
+    100%{
+        width:30%;
+    }
+
+}
+.LoveContainer{
+    position: relative;
+    left: 10%;
+    top: 30px;
+}
+.LoveCommonGrid{
+    position: relative;
+    padding: 5px;
+    margin-top:15px;
+
+}
+.line{
+    width:70%;
+    padding:0;
+    border:1px solid black;
+}

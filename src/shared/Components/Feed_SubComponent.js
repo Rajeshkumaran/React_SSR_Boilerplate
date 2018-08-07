@@ -69,7 +69,7 @@ class FeedSubComponent extends React.Component{
            <div className='UserDetailsDiv'>
                 <img className='ProfilePictureDisplay' src={this.props.data.Profile_Picture} style={{width:'30px',height:'30px'}}/>
                 <span className='UsernameSpan'>{this.props.data.Recievername}</span>
-                <span className='PostDateSpan'>Posted@{this.props.data.Post_Date}</span>
+                <span className='PostDateSpan'>posted @{this.props.data.Post_Date}</span>
                 <button className='ClearButton' onClick={this.Clear}>Clear</button>
            </div>
            <div className='FeedRequestDiv'>

@@ -1,10 +1,11 @@
 .FeedDisplay{
-    border:0.1px solid grey;
+    border:1px solid grey;
     position: relative;
     top:20px;
     left:20px;
     margin-top:10px;
     box-shadow: 3px 3px 3px grey;
+    border-radius:3px;
 
 }
 .UserDetailsDiv{
@@ -12,6 +13,7 @@
     display: inline-block;
     height: 50px;
     width: 100%;
+    
 }
 .ProfilePictureDisplay{
     position: relative;
@@ -29,8 +31,9 @@
 }
 .PostDateSpan{
 margin-left: 10px;
-color:blue;
+color:#149186;
 font-size: 13px;
+font-weight: bold;
 }
 .FeedRequestDiv{
     padding:20px;
@@ -93,10 +96,16 @@ font-size: 13px;
 }
 .SubmitButton{
 
-    border: 1px solid #8554e4; 
-    background: transparent;  
-    border-radius:2px;
+    border: 1px solid #6effe1; 
+    background: black;  
     padding: 7px;
+    color:white;
+
+}
+.SubmitButton:hover{
+    background: #6effe1;
+    color:black;
+    border:1px solid black;
 }
 .SubmitTextarea{
     width: 100%;
@@ -111,19 +120,24 @@ font-size: 13px;
     text-align: center;
 }
 .CancelButton{
-    background: transparent;
-    border: 1px solid #8554e4;  
-    border-radius: 2px; 
-    padding:7px;
+    border: 1px solid #6effe1; 
+    background: black;  
+    padding: 7px;
+    color:white;
     
 
+}
+.CancelButton:hover{
+    background: #6effe1;
+    color:black;
+    border:1px solid black;
 }
 .ClearButton{
     position: relative;
     float: right;
     border:1px solid black;
     border-right:1px solid transparent;
-    /* background: transparent; */
+    background: transparent;
    
 }
 

@@ -52,7 +52,7 @@
 }
 #LoginButton{
     position: relative;
-    border: 1px solid black;
+    border: 1px solid #6effe1;
     background: black;
     color:white;
     padding: 10px;
@@ -63,7 +63,7 @@
 }
 #SignupButton{
     position: relative;
-    border: 1px solid black;
+    border: 1px solid #6effe1;
     background: black;
     color:white;
     width:200px;

@@ -7,6 +7,7 @@ var initial_state = [];
 // }
 const items = function(state=initial_state,action){
 
+    
     switch(action.type){
         case 'HOME_REQUEST':
             return [...state,...action.payload]
