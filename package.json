@@ -14,7 +14,7 @@
     "build1": "webpack --mode production",
     "development1": "NODE_PATH=./src BABEL_ENV=node NODE_ENV=development node ./src/server/server.babel.js"
   },
-  "author": "Sandeep Raveesh",
+  "author": "Rajesh",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.18.3",
