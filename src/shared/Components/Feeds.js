@@ -17,7 +17,7 @@ class Feeds extends React.Component{
         console.log('feeds1',this.props);
         const items = this.props.MainReducer.map((feed)=>{
             if(feed.Show==1)
-            return <FeedSubComponent className='FeedSubComponent' key={feed.UserId} data={feed}/>
+            return <FeedSubComponent className='FeedSubComponent' key={feed.RecieverId+feed.ReceiverName} data={feed}/>
             
         })
         return(

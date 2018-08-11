@@ -12,12 +12,15 @@ export default class Navbar extends React.Component {
     //     console.log('componentDidMount called')
     //     // fetch('https://jsonplaceholder.typicode.com/posts/10').then(res=>res.json()).then(data=>console.log(data))
     // }
+    componentWillMount(){
+        console.log('called');
+    }
 
     render() {
         console.log('navbar called in server')
       
         return (
-        
+            
                 <div className='NavBar'>
                     <ul>
                         <li><Link to='/Home'>Home</Link></li>

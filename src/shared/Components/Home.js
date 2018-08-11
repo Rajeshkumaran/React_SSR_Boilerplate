@@ -16,6 +16,9 @@ class Home extends React.Component{
           this.props.CURRENT_LOCATION(window.location.href);
 
     }
+    componentWillUnmount(){
+        console.log('Home compoennt unmounted...');
+    }
 
    
 

@@ -9,6 +9,17 @@
     z-index:3;
     background-color:#6effe1;
     }
+
+.OverlayDiv-hide{
+    width:100%;
+    height:100%;
+    border:1px solid orange;
+    position:fixed; 
+    top:0;  
+    opacity:0.2;
+    z-index:3;
+    background-color:#FFFFFF;
+    }
 .LikeTabDiv-inactive{
         width:0%;
         height:100%;
@@ -25,7 +36,7 @@
             width:30%;
         }
         70%{
-            width:20%;
+            width:10%;
         }
         
         100%{
@@ -66,6 +77,7 @@
     position: relative;
     left: 10%;
     top: 30px;
+    white-space: nowrap;
 }
 .LoveCommonGrid{
     position: relative;

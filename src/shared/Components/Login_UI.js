@@ -3,18 +3,33 @@ import {connect} from 'react-redux';
 require('../Styles/login.web.css')
 class LoginUI extends React.Component {
 
+    constructor(props){
+        super(props);
+        this.state = {
+            active : 1
+        }
+    }
+
    
 
     Close = ()=>{
-    //    window.location.href = this.props.PageHitReducer.CURRENT_LOCATION
-       this.props.history.goBack();
+    
+      this.setState({
+          active : 0
+      })
+  
 
+    }
+    componentDidUpdate(){
+        
+        this.state.active ==0 ? setTimeout(()=>this.props.history.goBack(),420 ): console.log('Component Did Update called ',this.state.active)
     }
 
     render() {
 
         return (
-            <div id='LoginContainer'>
+
+            <div className={this.state.active==1?'LoginContainer-active':'LoginContainer-inactive'}>
                 <div id='LoginCloseDiv'>
                     <button id='LoginClose' onClick = {this.Close}>&#x2716;</button>
                 </div>
@@ -30,7 +45,6 @@ class LoginUI extends React.Component {
                     </form>
 
                 </div>
-
 
 
             </div>

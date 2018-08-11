@@ -34,6 +34,7 @@ app.get("*", (req, res) => {
 
    });
 
+
    promise.fetch_Page().then((data)=>{
 
     // setInitialState(data);

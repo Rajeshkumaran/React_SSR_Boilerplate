@@ -28,6 +28,7 @@ export default class App extends Component {
         <head>
           <style dangerouslySetInnerHTML={{__html:style}}></style>
           <script src='/test/bundle.js' defer></script>
+          <link rel="shortcut icon" href="/test/favicon.ico"/>
           {/* <link rel='stylesheet' type='text/css' href='/test/mobile.css' media='screen and (width="720px")'/> */}
           <link rel='stylesheet' type='text/css' href='/test/web.css'   />
           <script dangerouslySetInnerHTML={{__html: `window.__PRELOADED_STATE__ = ${JSON.stringify(this.props.initial_data)}`}}></script>

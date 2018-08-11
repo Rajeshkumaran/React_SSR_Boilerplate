@@ -1,8 +1,40 @@
-#LoginContainer{
-    position: relative;
+.LoginContainer-active{
+    position: absolute;
     display: inline-block;
+    top:0px;
     width: 100%;
     text-align: center;
+    animation : fallDown 0.4s linear; 
+}
+.LoginContainer-inactive{
+    position: absolute;
+    display: inline-block;
+    top:0px;
+    width: 100%;
+    text-align: center;
+    animation: goUp 0.4s linear;
+}
+@keyframes fallDown{
+    0%{
+        top:-450px;
+    }
+    50%{
+        top:-225px;
+    }
+    100%{
+        top:0px;
+    }
+}
+@keyframes goUp{
+    0%{
+        top:0px;
+    }
+    50%{
+        top:-325px;
+    }
+    100%{
+        top:-550px;
+    }
 }
 #LoginDiv{
     background: #e2e2e2;
@@ -52,7 +84,7 @@
 }
 #LoginButton{
     position: relative;
-    border: 1px solid #6effe1;
+    border: 1px solid black;
     background: black;
     color:white;
     padding: 10px;
@@ -63,7 +95,7 @@
 }
 #SignupButton{
     position: relative;
-    border: 1px solid #6effe1;
+    border: 1px solid black;
     background: black;
     color:white;
     width:200px;

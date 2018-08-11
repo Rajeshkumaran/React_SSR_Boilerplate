@@ -1,5 +1,10 @@
 const express = require('express');
+const bodyparser = require('body-parser');
 const app = express();
+const cors = require('cors');
+app.use(bodyparser.json());
+app.use(bodyparser.urlencoded({ extended: false }));
+app.use(cors());
 var Data=[
 
     {
@@ -21,5 +26,9 @@ var Data=[
 ]
 app.get('/api/aboutpage',(req,res)=>{
     res.send(Data);
+})
+app.post('/api/aboutpage',(req,res)=>{
+    console.log(req.body);
+    res.send(req.body)
 })
 app.listen(3013,()=>console.log('Listening on port 3013 ---> AboutPage data'));

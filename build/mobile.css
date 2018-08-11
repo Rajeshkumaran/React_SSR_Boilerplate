@@ -7,8 +7,36 @@
     margin-top:10px;
     box-shadow: 3px 3px 3px grey;
     border-radius:3px;
+    background: white;
+   
+}
+.FeedDisplay-clear{
+    border:1px solid grey;
+    position: relative;
+    top:20px;
+    left:20px;
+    margin-top:10px;
+    box-shadow: 3px 3px 3px grey;
+    border-radius:3px;
+    background: white;
+    animation : slideLeftToRight 0.4s linear;
 
 }
+@keyframes slideLeftToRight{
+0%{
+    left:20px;
+    opacity:0.8;
+}
+50%{
+    left:50px;
+    opacity:0.4;
+}
+100%{
+    left:100px;
+    opacity:0;
+}
+}
+
 .UserDetailsDiv{
     border-bottom:1px solid black;
     display: inline-block;
@@ -167,11 +195,43 @@ button{
     color:blue;
     border:2px solid oranges;
 }
-#LoginContainer{
-    position: relative;
+.LoginContainer-active{
+    position: absolute;
     display: inline-block;
+    top:0px;
     width: 100%;
     text-align: center;
+    animation : fallDown 0.4s linear; 
+}
+.LoginContainer-inactive{
+    position: absolute;
+    display: inline-block;
+    top:0px;
+    width: 100%;
+    text-align: center;
+    animation: goUp 0.4s linear;
+}
+@keyframes fallDown{
+    0%{
+        top:-450px;
+    }
+    50%{
+        top:-225px;
+    }
+    100%{
+        top:0px;
+    }
+}
+@keyframes goUp{
+    0%{
+        top:0px;
+    }
+    50%{
+        top:-325px;
+    }
+    100%{
+        top:-550px;
+    }
 }
 #LoginDiv{
     background: #e2e2e2;
@@ -221,7 +281,7 @@ button{
 }
 #LoginButton{
     position: relative;
-    border: 1px solid #6effe1;
+    border: 1px solid black;
     background: black;
     color:white;
     padding: 10px;
@@ -232,7 +292,7 @@ button{
 }
 #SignupButton{
     position: relative;
-    border: 1px solid #6effe1;
+    border: 1px solid black;
     background: black;
     color:white;
     width:200px;
@@ -272,6 +332,17 @@ button{
     z-index:3;
     background-color:#6effe1;
     }
+
+.OverlayDiv-hide{
+    width:100%;
+    height:100%;
+    border:1px solid orange;
+    position:fixed; 
+    top:0;  
+    opacity:0.2;
+    z-index:3;
+    background-color:#FFFFFF;
+    }
 .LikeTabDiv-inactive{
         width:0%;
         height:100%;
@@ -288,7 +359,7 @@ button{
             width:30%;
         }
         70%{
-            width:20%;
+            width:10%;
         }
         
         100%{
@@ -329,6 +400,7 @@ button{
     position: relative;
     left: 10%;
     top: 30px;
+    white-space: nowrap;
 }
 .LoveCommonGrid{
     position: relative;
