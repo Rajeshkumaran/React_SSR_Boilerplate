@@ -1,6 +1,4 @@
-import Home from '../shared/Components/Home'
-import About from '../shared/Components/About_us'
-import fetch from 'isomorphic-fetch';
+
 const routes = [
 {
     path:'/Home',

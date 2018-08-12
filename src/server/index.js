@@ -28,16 +28,12 @@ app.use('/test', express.static('build'));
 app.get("*", (req, res) => {
 
    var promise = routes.find((route)=>{
-
-    //    console.log(route) 
        return route.path == req.url
-
    });
 
 
    promise.fetch_Page().then((data)=>{
-
-    // setInitialState(data);
+       
     const store = createStore(AllReducers)
     store.dispatch({type:promise.actiontype,payload:data})
     const preloaded_State = store.getState();

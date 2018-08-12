@@ -35,28 +35,30 @@ class FeedSubComponent extends React.Component {
         console.log('ComponentDidUpdate in Feed sub component')
         if (this.state.clear == 1) {
             var data = [this.props.data.RecieverId, this.props.data.PostId]
-            setTimeout(() => this.props.ClearFeed(data), 420)
+            setTimeout(() => {
+                this.props.ClearFeed(data)
+                // var url = 'http://localhost:1337/homepagedata/'+this.props.data._id;
+                // var postdata = {
+                //     Show:false
+                // }
+    
+                // fetch(url, {
+                //     method: 'PUT',
+                //     headers: {
+                //         "Content-Type": "application/json; charset=utf-8",
+                //         // "Content-Type": "application/x-www-form-urlencoded",
+                //     }, // 'GET', 'PUT', 'DELETE', etc.
+                //     body: JSON.stringify(postdata) // Coordinate the body type with 'Content-Type'
+                   
+                // }).then(res => res.json())
+                //     .then(response => console.log('Success:', response))
+                //     .catch(error => console.error('Error:', error));
+    
+    
+            }, 400)
 
 
-            var url = 'http://localhost:1337/homepagedata/';
-            var postdata = {
-                _id:this.props.data._id,
-                RecieverId: this.props.data.RecieverId,
-                PostId: this.props.data.PostId,
-                PostReply: this.state.textareaContent,
-                
-
-            }
-
-            fetch(url, {
-                method: 'POST', // 'GET', 'PUT', 'DELETE', etc.
-                body: JSON.stringify(postdata), // Coordinate the body type with 'Content-Type'
-               
-            }).then(res => res.json())
-                .then(response => console.log('Success:', response))
-                .catch(error => console.error('Error:', error));
-
-
+           
 
         }
     }
@@ -72,24 +74,25 @@ class FeedSubComponent extends React.Component {
     Send = () => {
         console.log('Send clicked !!!', this.state.textareaContent);
 
-        var url = 'http://localhost:3013/api/aboutpage';
+        var url = 'http://localhost:1337/homepagedata/'+this.props.data._id;
         var postdata = {
-            // RecieverId: this.props.data.RecieverId,
-            // PostId: this.props.data.PostId,
-            // PostReply: this.state.textareaContent,
-            // SenderId: "101"
-            Product:'car',
-            Price:312312,
-            id:1
+            Replies:
+                [{
+                    SenderId:'101',
+                    Post : this.state.textareaContent
+                }],
+                          
 
         }
+        postdata.ReplyCount = postdata.Replies.length;
 
         fetch(url, {
-            method: 'POST', // or 'PUT'
-            body: JSON.stringify(postdata), // data can be `string` or {object}!
+            method: 'PUT', // or 'PUT'
+             // data can be `string` or {object}!
             headers: {
                 'Content-Type': 'application/json'
-            }
+            },
+            body: JSON.stringify(postdata),
         }).then(res => res.json())
             .then(response => console.log('Success:', response))
             .catch(error => console.error('Error:', error));
