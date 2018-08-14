@@ -6,10 +6,24 @@ class LoginUI extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            active : 1
+            active : 1,
+            mailId: '',
+            Password : ''
         }
     }
 
+   Listener = (event)=>{
+       console.log(event.target.value);
+       event.target.name == 'mailId'?
+        this.setState({
+            mailId:event.target.value
+        })
+        :
+        this.setState({
+            Password:event.target.value
+        })
+
+    }
    
 
     Close = ()=>{
@@ -22,7 +36,20 @@ class LoginUI extends React.Component {
     }
     componentDidUpdate(){
         
-        this.state.active ==0 ? setTimeout(()=>this.props.history.goBack(),420 ): console.log('Component Did Update called ',this.state.active)
+        this.state.active ==0 ? setTimeout(()=>this.props.history.goBack(),400 ): console.log('Component Did Update called ',this.state.active)
+    }
+    Login = ()=>{
+
+        fetch('http://localhost:3010/LoginAuthenticate?mailId='+this.state.mailId+'&Password='+this.state.Password
+        ,{
+            method: 'GET', // or 'PUT'
+           
+       })
+        .then(res => res.json())
+            .then(response => console.log('Success:', response))
+            .catch(error => console.error('Error:', error));
+
+
     }
 
     render() {
@@ -36,13 +63,13 @@ class LoginUI extends React.Component {
                 <br/>
                 <div id='LoginDiv'>
 
-                    <form id='LoginForm'>
+                    <div id='LoginForm'>
                         <img src="/assets/images/s_logo.png" id='LoginLogo' /><br />
-                        <input type='text' placeholder='Username' id='Username' /><br />
-                        <input type='text' placeholder='password' id='password' /><br />
-                        <button id='LoginButton' >Login</button><br />
+                        <input type='text' placeholder='mailId' id='mailId' name='mailId' onChange={this.Listener}  value={this.state.mailId}/><br />
+                        <input type='text' placeholder='password' id='password' name='Password' onChange={this.Listener} value={this.state.Password}/><br />
+                        <button id='LoginButton' onClick={this.Login} >Login</button><br />
                         <button id='SignupButton'>Signup</button>
-                    </form>
+                    </div>
 
                 </div>
 

@@ -15,24 +15,33 @@ import {createStore} from 'redux';
 // import {setInitialState} from '../shared/Reducers/MainReducer';
 import MainReducer from '../shared/Reducers/MainReducer';
 import PageHitReducer from '../shared/Reducers/PageHitReducer';
+import LoginReducer from '../shared/Reducers/LoginReducer';
 import { combineReducers } from 'redux';
+import  bodyParser from 'body-parser';
 const app = express();
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json())
 app.use(cors());
 const AllReducers = combineReducers({
     MainReducer : MainReducer,
-    PageHitReducer : PageHitReducer
+    PageHitReducer : PageHitReducer,
+    LoginReducer : LoginReducer
 })
 
 app.use('/assets', express.static('assets'));
 app.use('/test', express.static('build'));
+
 app.get("*", (req, res) => {
 
+    console.log('Req  params',req.url,req.params,req.query);
    var promise = routes.find((route)=>{
-       return route.path == req.url
+       console.log('route',route)
+       return route.path  == req.params[0]
    });
 
-
-   promise.fetch_Page().then((data)=>{
+   console.log('Working post call',promise);
+   var resolved = promise.actiontype == 'LOGIN_AUTHENTICATION'? promise.fetch_Page(req.query) : promise.fetch_Page();
+   resolved.then((data)=>{
        
     const store = createStore(AllReducers)
     store.dispatch({type:promise.actiontype,payload:data})

@@ -24,14 +24,10 @@ class Home extends React.Component{
 
     render(){
         console.log('home called.....')
-        // console.log(this.props.MainReducer)
-        // this.props.MainReducer.map((val)=>{
-         
-        //     console.log(val)
-        // })
+ 
         return(
             <div id='home'>
-               <Feeds/>
+                No new Feeds to display
             </div>
 
         );
@@ -42,7 +38,8 @@ class Home extends React.Component{
 function mapStateToProps(state){
     return {
         MainReducer : state.MainReducer,
-        PageHitReducer : state.PageHitReducer
+        PageHitReducer : state.PageHitReducer,
+        LoginReducer : state.LoginReducer
     }
 }
 function matchDispatchToProps(dispatch){

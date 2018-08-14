@@ -8,9 +8,11 @@ import {BrowserRouter,Link,Route} from 'react-router-dom';
  import { combineReducers } from 'redux';
 import MainReducer from '../shared/Reducers/MainReducer';
 import PageHitReducer from '../shared/Reducers/PageHitReducer';
+import LoginReducer from '../shared/Reducers/LoginReducer';
  const AllReducers = combineReducers({
   MainReducer : MainReducer,
-  PageHitReducer : PageHitReducer
+  PageHitReducer : PageHitReducer,
+  LoginReducer :LoginReducer
 })
 const store = createStore(AllReducers,window.__PRELOADED_STATE__)
  ReactDOM.hydrate(
