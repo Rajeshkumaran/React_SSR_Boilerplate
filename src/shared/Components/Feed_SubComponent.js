@@ -25,7 +25,7 @@ class FeedSubComponent extends React.Component {
     Clear = () => {
 
 
-        console.log('Clear called' + this.props.data.RecieverId, this.props.data.PostId);
+        console.log('Clear called' + this.props.data.ReceiverId, this.props.data.PostId);
         this.setState({
             clear: 1
         })
@@ -34,7 +34,7 @@ class FeedSubComponent extends React.Component {
     componentDidUpdate() {
         console.log('ComponentDidUpdate in Feed sub component')
         if (this.state.clear == 1) {
-            var data = [this.props.data.RecieverId, this.props.data.PostId]
+            var data = [this.props.data.ReceiverId, this.props.data.PostId]
             setTimeout(() => {
                 this.props.ClearFeed(data)
                 // var url = 'http://localhost:1337/homepagedata/'+this.props.data._id;
@@ -106,7 +106,7 @@ class FeedSubComponent extends React.Component {
             <div className={this.state.clear == 0 ? 'FeedDisplay' : 'FeedDisplay-clear'} >
                 <div className='UserDetailsDiv'>
                     <img className='ProfilePictureDisplay' src={this.props.data.ProfilePicture} style={{ width: '30px', height: '30px' }} />
-                    <span className='UsernameSpan'>{this.props.data.RecieverName}</span>
+                    <span className='UsernameSpan'>{this.props.data.ReceiverName}</span>
                     <span className='PostDateSpan'>posted @{this.props.data.PostDate}</span>
                     <button className='ClearButton' onClick={this.Clear}>Clear</button>
                 </div>

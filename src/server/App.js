@@ -11,7 +11,7 @@ import serialize from 'serialize-javascript';
 
 //console.log(styles);
 const style = fs.readFileSync(
-  join('/home/rajesh_k/Documents/simple-react-full-stack/src/shared/Styles/NavBar.web.css'),
+  join('/home/rajeshkumaran/Documents/ShareItProject/React_SSR_Boilerplate/src/shared/Styles/NavBar.web.css'),
   'utf-8',
 );
 var test;
