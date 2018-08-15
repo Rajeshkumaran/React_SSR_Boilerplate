@@ -39,7 +39,6 @@ app.get("*", (req, res) => {
        return route.path  == req.params[0]
    });
 
-   console.log('Working post call',promise);
    var resolved = promise.actiontype == 'LOGIN_AUTHENTICATION'? promise.fetch_Page(req.query) : promise.fetch_Page();
    resolved.then((data)=>{
        
