@@ -3,6 +3,7 @@
     display: inline-block;
     top:0px;
     width: 100%;
+    opacity:1;
     text-align: center;
     animation : fallDown 0.4s linear; 
 }
@@ -13,27 +14,34 @@
     width: 100%;
     text-align: center;
     animation: goUp 0.4s linear;
+    opacity:0.1;
 }
 @keyframes fallDown{
     0%{
-        top:-450px;
+        top:-250px;
+        opacity:0.1;
     }
     50%{
-        top:-225px;
+        top:-125px;
+        opacity:0.3;
     }
     100%{
         top:0px;
+        opacity:1;
     }
 }
 @keyframes goUp{
     0%{
         top:0px;
+        opacity:1;
     }
     50%{
-        top:-325px;
+        top:-125px;
+        opacity:0.3;
     }
     100%{
-        top:-550px;
+        top:-250px;
+        opaccity:0.1;
     }
 }
 #LoginDiv{

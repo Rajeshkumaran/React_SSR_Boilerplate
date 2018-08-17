@@ -17,7 +17,7 @@ class Home extends React.Component{
 
     }
     componentWillUnmount(){
-        console.log('Home compoennt unmounted...');
+        console.log('Home compoennt unmounted...',this.props);
     }
 
    
@@ -39,7 +39,8 @@ function mapStateToProps(state){
     return {
         MainReducer : state.MainReducer,
         PageHitReducer : state.PageHitReducer,
-        LoginReducer : state.LoginReducer
+        LoginReducer : state.LoginReducer,
+        SentRequestReducer : state.SentRequestReducer
     }
 }
 function matchDispatchToProps(dispatch){

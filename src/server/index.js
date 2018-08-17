@@ -16,8 +16,10 @@ import {createStore} from 'redux';
 import MainReducer from '../shared/Reducers/MainReducer';
 import PageHitReducer from '../shared/Reducers/PageHitReducer';
 import LoginReducer from '../shared/Reducers/LoginReducer';
+import SentRequestReducer from '../shared/Reducers/SentRequestReducer';
 import { combineReducers } from 'redux';
 import  bodyParser from 'body-parser';
+
 const app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json())
@@ -25,30 +27,60 @@ app.use(cors());
 const AllReducers = combineReducers({
     MainReducer : MainReducer,
     PageHitReducer : PageHitReducer,
-    LoginReducer : LoginReducer
+    LoginReducer : LoginReducer,
+    SentRequestReducer : SentRequestReducer
 })
 
 app.use('/assets', express.static('assets'));
 app.use('/test', express.static('build'));
-
+app.post('/LoginAuthenticate',(req,res)=>{
+    
+    fetch('http://localhost:3015/LoginAuthenticator',{
+            method:'POST',
+            headers:{
+                    'Content-Type': 'application/json'
+            },   
+                body: JSON.stringify(req.body),
+            }
+            )
+            .then(response=>response.json())
+            .then((data)=>{
+                console.log('Data : ',data)
+                res.send(data)
+            })
+            .catch((error)=>error)
+            
+        
+    
+})
 app.get("*", (req, res) => {
 
-    console.log('Req  params',req.url,req.params,req.query);
+   // console.log('Req  params',req.url,req.params,req.query);
    var promise = routes.find((route)=>{
-       console.log('route',route)
+      // console.log('route',route)
        return route.path  == req.params[0]
    });
 
-   var resolved = promise.actiontype == 'LOGIN_AUTHENTICATION'? promise.fetch_Page(req.query) : promise.fetch_Page();
+   var resolved = promise.fetch_Page();
    resolved.then((data)=>{
        
     const store = createStore(AllReducers)
     store.dispatch({type:promise.actiontype,payload:data})
+    console.log("data .......",data)
+    if(promise.actiontype == 'LOGIN_AUTHENTICATION' && data.Authenticated ==true){
+      
+        console.log('In node server Authentication :',data.Authenticated,data)
+        store.dispatch({type:'SENT_REQUESTS',payload:data.MyRequests})
+
+    }
+
+ 
+
+
+
     const preloaded_State = store.getState();
-    var test = JSON.stringify(preloaded_State).replace(/</g, '\\u003c');
-    console.log(test)
-    console.log(store.getState())
-    const html = renderToString(<Provider store={store}><App url={req.url} initial_data={preloaded_State}/></Provider> )
+    console.log('PreLoaded state : ',preloaded_State)
+    const html = renderToString(<App url={req.url} storedata={store} initial_data={preloaded_State}/> )
     //     res.send(`<html>
     //     <head>
     //       <script src='/test/bundle.js' defer></script>
@@ -61,6 +93,7 @@ app.get("*", (req, res) => {
     //   </body>
     //   </html>`)
      res.send(`${html}`)
+    
 
    })
  

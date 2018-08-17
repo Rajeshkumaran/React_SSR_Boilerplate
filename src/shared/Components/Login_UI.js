@@ -40,14 +40,26 @@ class LoginUI extends React.Component {
     }
     Login = ()=>{
 
-        fetch('http://localhost:3010/LoginAuthenticate?mailId='+this.state.mailId+'&Password='+this.state.Password
+
+        fetch('http://localhost:3010/LoginAuthenticate'
         ,{
-            method: 'GET', // or 'PUT'
+            method: 'POST',
+            headers : {
+                'Content-type':'application/json'
+            }, // or 'PUT',
+            body : JSON.stringify({MailId:this.state.mailId,Password:this.state.Password})
            
        })
         .then(res => res.json())
-            .then(response => console.log('Success:', response))
-            .catch(error => console.error('Error:', error));
+            .then(response => {
+                console.log('Success:', response,this.props)
+                this.props.AUTHENTICATION(response.Authenticated)
+                if(response.Authenticated){
+                    this.props.SENT_REQUESTS(response.MyRequests)
+                    this.props.history.goBack();
+                }
+           })
+            .catch(error => console.log('Error:', error));
 
 
     }
@@ -86,7 +98,15 @@ class LoginUI extends React.Component {
 function mapStateToProps(state){
     return{
         MainReducer:state.MainReducer,
-        PageHitReducer:state.PageHitReducer
+        PageHitReducer:state.PageHitReducer,
+        
+        SentRequestReducer : state.SentRequestReducer
     }
 }
-export default connect(mapStateToProps)(LoginUI);
+function matchDispatchToProps(dispatch){
+    return{
+        AUTHENTICATION : (data)=>dispatch({type:'LOGIN_AUTHENTICATION',payload:data}),
+        SENT_REQUESTS : (data)=>dispatch({type:'SENT_REQUESTS',payload:data})
+    }
+}
+export default connect(mapStateToProps,matchDispatchToProps)(LoginUI);

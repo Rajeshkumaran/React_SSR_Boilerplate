@@ -43,6 +43,9 @@ a{
     text-decoration: none;
     color:white;
 }
+#PostRequest{
+    float:right;
+}
 #LoginLi{
     float:right;
 }

@@ -35,9 +35,12 @@ export default class App extends Component {
         </head>
         <body>
           <div id='root'>
+          <Provider store={this.props.storedata}>
           <StaticRouter location={this.props.url} context={{}}>
             <Navbar/>
-        </StaticRouter> 
+        </StaticRouter>
+        </Provider>
+         
          </div>
       </body>
       </html>

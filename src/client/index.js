@@ -9,11 +9,14 @@ import {BrowserRouter,Link,Route} from 'react-router-dom';
 import MainReducer from '../shared/Reducers/MainReducer';
 import PageHitReducer from '../shared/Reducers/PageHitReducer';
 import LoginReducer from '../shared/Reducers/LoginReducer';
+import SentRequestReducer from '../shared/Reducers/SentRequestReducer';
  const AllReducers = combineReducers({
   MainReducer : MainReducer,
   PageHitReducer : PageHitReducer,
-  LoginReducer :LoginReducer
+  LoginReducer :LoginReducer,
+  SentRequestReducer : SentRequestReducer
 })
+console.log('Preloaded state : ',window.__PRELOADED_STATE__)
 const store = createStore(AllReducers,window.__PRELOADED_STATE__)
  ReactDOM.hydrate(
  <Provider store={store}>
