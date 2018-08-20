@@ -1,6 +1,8 @@
 import React from 'react';
 import Feeds from './Feeds';
 import {connect} from 'react-redux';
+import date from 'date-and-time';
+
 require('../Styles/home.web.css')
 var d;
 class Home extends React.Component{
@@ -10,10 +12,10 @@ class Home extends React.Component{
     }
     componentDidMount(){
 
-        console.log("component did mount in Home",this.props)
+//        console.log("component did mount in Home",this.props)
 
-         this.props.PageHitReducer['HOME_REQUEST']==0? fetch('https://jsonplaceholder.typicode.com/posts/1').then(response=>response.json()).then(data=>console.log(data)):null
-          this.props.CURRENT_LOCATION(window.location.href);
+         this.props.PageHitReducer['VISITED_HOME']==0 ? console.log('HOME VISITED :0') : console.log('HOME VISITED :1')  
+             //      this.props.CURRENT_LOCATION(window.location.href);
 
     }
     componentWillUnmount(){
@@ -24,7 +26,7 @@ class Home extends React.Component{
 
     render(){
         console.log('home called.....')
- 
+        
         return(
             <div id='home'>
                 No new Feeds to display
@@ -45,7 +47,7 @@ function mapStateToProps(state){
 }
 function matchDispatchToProps(dispatch){
     return{
-        CURRENT_LOCATION : (data)=>dispatch({type:'CURRENT_LOCATION',payload:data})
+      //  CURRENT_LOCATION : (data)=>dispatch({type:'CURRENT_LOCATION',payload:data})
     }
 }
 export default connect(mapStateToProps,matchDispatchToProps)(Home);

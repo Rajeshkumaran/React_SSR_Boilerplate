@@ -5,16 +5,19 @@ class MyFeed extends React.Component{
         super(props);
     }
     render(){
+        console.log(this.props);
         return(
             <div className='SentRequestsDiv'>
 
-            <div className='SentRequest_PostContentDiv'>
-
+            <div className='SentRequest_PostDateDiv'>
+                {this.props.data.PostDate}
             </div>
-            <span className='SentRequest_line'></span>
+            <div className='SentRequest_PostContentDiv'>
+                {this.props.data.PostContent}
+            </div>
             <div className='SentRequest_ControlsDiv'>
-                <button>Edit</button>
-                <button>View Replies</button>
+                <button className='SentRequest_EditButton'>Edit</button>
+                <button className='SentRequest_ViewReplyButton' onClick={this.props.clickhandler.bind(this,1,this.props.data.PostContent)}>View Replies</button>
             </div>
             <div className='SentRequest_ViewRepliesDiv'>
 

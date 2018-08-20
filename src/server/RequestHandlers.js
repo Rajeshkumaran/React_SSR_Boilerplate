@@ -6,6 +6,19 @@ const app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(cors());
+app.post('/MyRequests_DataHandler',(req,res)=>{
+
+    console.log('In MyRequest_DataHandler ',req.body)
+    fetch('http://localhost:1337/userinfo/'+req.body.UserId)
+    .then(response => response.json())
+    .then((data)=>{
+        console.log('Inside MyRequest_DataHandler ',data);
+        res.send(data);
+    }).catch((error)=>{
+        console.log('Error in Inside MyRequest_DataHandler',error);
+    })
+
+})
 app.post('/LoginAuthenticator', (req, res) => {
     
 
@@ -23,7 +36,7 @@ app.post('/LoginAuthenticator', (req, res) => {
             
                         console.log(value)
                         // store.dispatch({type:'SENT_REQUESTS',payload:value[0].postdetails})
-                        res.send({ Authenticated: true,MyRequests : value[0].postdetails})
+                        res.send({ Authenticated: true,UserId:data[0].UserId,MyRequests : value[0].postdetails})
                     }).catch((error)=>console.log("Error after login successful"))    
                 
                 }
@@ -37,5 +50,22 @@ app.post('/LoginAuthenticator', (req, res) => {
 
 
 
+})
+app.post('/PostRequest_Handler',(req,res)=>{
+    console.log('In PostRequest_Handler ',req.body)
+    fetch('http://localhost:1337/postdetails',{
+        method : 'POST',
+        headers :{
+            'Content-Type' : 'application/json'
+        },
+        body: JSON.stringify(req.body)
+    }).then(response => response.json()).then((data)=>{
+        console.log('Inside PostRequest_Handler ',data);
+        res.send({action : 'PostRequest_Done',
+        status:'Success'
+    });
+    }).catch((error)=>{
+        console.log('Error in Inside PostRequest_Handler',error);
+    })
 })
 app.listen(3015, () => { console.log('Listening on port 3015') })

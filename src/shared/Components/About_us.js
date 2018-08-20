@@ -8,7 +8,7 @@ class AboutUs extends React.Component{
 
         console.log(this.props)
          this.props.PageHitReducer['ABOUT_REQUEST']==0? fetch('https://jsonplaceholder.typicode.com/posts/1').then(response=>response.json()).then(data=>console.log(data)):null
-         this.props.CURRENT_LOCATION(window.location.href);
+        // this.props.CURRENT_LOCATION(window.location.href);
     }
 
 

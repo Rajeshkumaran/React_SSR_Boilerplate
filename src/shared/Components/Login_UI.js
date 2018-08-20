@@ -53,7 +53,7 @@ class LoginUI extends React.Component {
         .then(res => res.json())
             .then(response => {
                 console.log('Success:', response,this.props)
-                this.props.AUTHENTICATION(response.Authenticated)
+                this.props.AUTHENTICATION({isAuthenticated:response.Authenticated,UserId:response.UserId})
                 if(response.Authenticated){
                     this.props.SENT_REQUESTS(response.MyRequests)
                     this.props.history.goBack();

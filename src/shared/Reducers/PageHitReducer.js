@@ -1,23 +1,25 @@
 var initial_state={
-    'HOME_REQUEST':0,
-    'ABOUT_REQUEST':0,
-    'CURRENT_LOCATION':''
+    'VISITED_HOME':0,
+    'VISITED_ABOUT':0,
+    'VISITED_MYREQUESTS' :0
+    
 };
 const items = function(state = initial_state,action){
+    //console.log(action.type);
     switch(action.type){
-        case 'HOME_REQUEST':
+        case '/HOME':
             var new_state = {...state};
-            new_state['HOME_REQUEST']=1;
+            new_state['VISITED_HOME']=action.payload;
             return new_state;
             break;
-        case 'ABOUT_REQUEST':
+        case '/ABOUT':
             var new_state = {...state};
-            new_state['ABOUT_REQUEST']=1;
+            new_state['VISITED_ABOUT']=action.payload;
             return new_state;
             break;
-        case 'CURRENT_LOCATION':
-            var new_state = {...state};
-            new_state['CURRENT_LOCATION']=action.payload;
+        case '/MYREQUESTS':
+            var new_state ={...state};
+            new_state['VISITED_MYREQUESTS']=action.payload;
             return new_state;
             break;
         

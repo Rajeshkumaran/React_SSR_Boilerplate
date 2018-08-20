@@ -8,6 +8,7 @@
     box-shadow: 3px 3px 3px grey;
     border-radius:3px;
     background: white;
+    width:80%;
    
 }
 .FeedDisplay-clear{
@@ -200,6 +201,7 @@ button{
     display: inline-block;
     top:0px;
     width: 100%;
+    opacity:1;
     text-align: center;
     animation : fallDown 0.4s linear; 
 }
@@ -210,27 +212,28 @@ button{
     width: 100%;
     text-align: center;
     animation: goUp 0.4s linear;
+    opacity:0.1;
 }
 @keyframes fallDown{
-    0%{
-        top:-450px;
+    from{
+       
+        opacity:0.1;
     }
-    50%{
-        top:-225px;
-    }
-    100%{
-        top:0px;
+   
+    to{
+       
+        opacity:1;
     }
 }
 @keyframes goUp{
-    0%{
-        top:0px;
+    from{
+      
+        opacity:1;
     }
-    50%{
-        top:-325px;
-    }
-    100%{
-        top:-550px;
+   
+    to{
+       
+        opaccity:0.1;
     }
 }
 #LoginDiv{
@@ -414,6 +417,165 @@ button{
     border:1px solid black;
 }
 
+.MyPostDiv{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+}
+.ViewReplies_Div{
+    position: fixed;
+    top: 0px;
+    right:0;
+    height: 100%;
+    border: 1px solid white;
+    box-shadow: -2px 2px 3px grey;
+    z-index: 1;
+    background: white;
+    opacity: 1; 
+}
+.open{
+    width:50%;
+}
+
+.close{
+    width:0%;
+}
+.ViewReplies_Header{
+    position: relative;
+    text-align: center;
+    top: 20px;
+    padding-right: 10px;
+}
+
+.SentRequestsDiv{
+   
+    border: 1px solid white;
+    position: relative;
+    box-shadow: 0px 3px 3px grey, 0px -1px 3px grey;
+    margin:10px;
+   
+}
+.SentRequest_PostContentDiv{
+    position: relative;
+    padding: 7px;
+    height: 100px;
+    overflow-y: hidden;
+    border: 1px solid white;
+    box-shadow: 0px 1px 3px grey;
+    margin: 1%;
+}
+.SentRequest_PostContentDiv:hover{
+    overflow-y: scroll;
+}
+.SentRequest_PostDateDiv{
+    font-size: 12px;
+    position: relative;
+    padding: 12px;
+}
+.SentRequest_ControlsDiv{
+    position: relative;
+    /* top: 10px; */
+    padding: 1px;
+    padding-bottom:10px;
+   
+}
+.SentRequest_EditButton{
+    border:none;
+    background:none;
+    font-size:9px;
+    text-decoration:underline;
+    color:blue;
+
+}
+.SentRequest_ViewReplyButton{
+    border:none;
+    background:none;
+    font-size:9px;
+    text-decoration:underline;
+    color:blue;
+}
+.PostRequestDiv{
+    position: relative;
+    border: 1px solid white;
+    display: inline-block;
+    height: 200px;
+    left: 20%;
+    text-align: center;
+    box-shadow: 0px 2px 5px grey,0px -1px 5px grey;
+    animation : grow 0.4s linear;
+    
+}
+.PostRequestDiv-Close{
+    position: relative;
+    border: 1px solid white;
+    display: inline-block;
+    height: 200px;
+    left: 20%;
+    text-align: center;
+    box-shadow: 0px 2px 5px grey,0px -1px 5px grey;
+    animation: shrink 0.4s linear;;
+}
+@keyframes grow{
+    from{
+        transform: scaleX(0);
+    }
+    to{
+        transform: scaleX(1);
+    }
+}
+@keyframes shrink{
+    from{
+        transform: scaleX(1);
+    }
+    to{
+        transform: scaleX(0);
+    }
+}
+
+#PostRequest_TitleDiv{
+    position: relative;
+    top:10px;
+}
+#PostRequest_CloseButton{
+    background:none;
+    float:right;
+    border:1px solid transparent;
+}
+#PostRequest_ContentDiv{
+    position: relative;
+    top: 20px;
+    width: 100%;
+
+}
+#PostRequest_textarea{
+   
+    width: 90%;
+    position: relative;
+    resize: none;
+   
+}
+
+#PostRequest_SubmitButton{
+    position: relative;
+    /* top: 70px; */
+    margin-right: 20px;
+}
+#PostRequest_ClearButton{
+    position: relative;
+    
+}
+#PostRequest_OverlayDiv{
+    position: fixed;
+    top: 0;
+    background: white;
+    opacity: 0.3;
+    width: 100%;
+    height: 100%;
+}
+.PostRequest_Controllers{
+    display: inline-block;
+    position: relative;
+    top: 40px;
+}
 *{
     box-sizing: border-box;
 }
@@ -433,7 +595,7 @@ button{
 }
 .ComponentDisplay{
     position:relative;
-    top:100px;
+    top:50px;
 }
 ul{
 border: 1px solid grey;
@@ -456,6 +618,9 @@ ul li{
 a{
     text-decoration: none;
     color:white;
+}
+#PostRequest{
+    float:right;
 }
 #LoginLi{
     float:right;

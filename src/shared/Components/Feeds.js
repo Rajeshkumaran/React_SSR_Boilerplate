@@ -10,8 +10,7 @@ class Feeds extends React.Component{
     }
     componentDidMount(){
         console.log('component did mount in Feeds');
-        this.props.CURRENT_LOCATION(window.location.href);
-
+     
     }
     render(){
         console.log('feeds1',this.props);
@@ -41,7 +40,7 @@ function mapStateToProps(state){
 }
 function matchDispatchToProps(dispatch){
     return{
-        CURRENT_LOCATION : (data)=>dispatch({type:'CURRENT_LOCATION',payload:data})
+       // CURRENT_LOCATION : (data)=>dispatch({type:'CURRENT_LOCATION',payload:data})
     }
 }
 export default connect(mapStateToProps,matchDispatchToProps)(Feeds);

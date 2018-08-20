@@ -1,0 +1,76 @@
+.MyPostDiv{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+}
+.ViewReplies_Div{
+    position: fixed;
+    top: 0px;
+    right:0;
+    height: 100%;
+    border: 1px solid white;
+    box-shadow: -2px 2px 3px grey;
+    z-index: 1;
+    background: white;
+    opacity: 1; 
+}
+.open{
+    width:50%;
+}
+
+.close{
+    width:0%;
+}
+.ViewReplies_Header{
+    position: relative;
+    text-align: center;
+    top: 20px;
+    padding-right: 10px;
+}
+
+.SentRequestsDiv{
+   
+    border: 1px solid white;
+    position: relative;
+    box-shadow: 0px 3px 3px grey, 0px -1px 3px grey;
+    margin:10px;
+   
+}
+.SentRequest_PostContentDiv{
+    position: relative;
+    padding: 7px;
+    height: 100px;
+    overflow-y: hidden;
+    border: 1px solid white;
+    box-shadow: 0px 1px 3px grey;
+    margin: 1%;
+}
+.SentRequest_PostContentDiv:hover{
+    overflow-y: scroll;
+}
+.SentRequest_PostDateDiv{
+    font-size: 12px;
+    position: relative;
+    padding: 12px;
+}
+.SentRequest_ControlsDiv{
+    position: relative;
+    /* top: 10px; */
+    padding: 1px;
+    padding-bottom:10px;
+   
+}
+.SentRequest_EditButton{
+    border:none;
+    background:none;
+    font-size:9px;
+    text-decoration:underline;
+    color:blue;
+
+}
+.SentRequest_ViewReplyButton{
+    border:none;
+    background:none;
+    font-size:9px;
+    text-decoration:underline;
+    color:blue;
+}

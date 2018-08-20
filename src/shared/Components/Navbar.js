@@ -36,8 +36,7 @@ class Navbar extends React.Component {
                         <li><Link to='/About'>About</Link></li>
                         <li><Link to='/MyRequests'>MyRequests</Link></li>
                         
-                        {this.props.LoginReducer.isAuthenticated ? <li id='MyAccount'>MyAccount</li> : <li id='LoginLi'><Link to='/Login'>Login</Link></li>}
-                        {this.props.LoginReducer.isAuthenticated ?null  : <li id='SignupLi'><Link to='/Signup'>Sign up</Link></li>}
+                        <li id='LoginLi'><Link to='/Login'><img style={{width:'16px',height:'16px',position:'relative',top:'3px'}} src='/assets/images/myaccount.png'/></Link></li>
                         <li id='StarLi'><Link to='/Loves'><img style={{width:'20px',height:'20px',position:'relative'}} src='/assets/images/heart.png'/></Link></li>
                         <li title='Post a Request' id='PostRequest'><Link to='/PostRequest'><img style={{width:'20px',height:'20px',position:'relative'}} src='/assets/images/plus.png'/></Link></li>
                     </ul>
@@ -69,7 +68,7 @@ function mapStateToProps(state){
 }
 function matchDispatchToProps(dispatch){
     return{
-        CURRENT_LOCATION : (data)=>dispatch({type:'CURRENT_LOCATION',payload:data})
+   // CURRENT_LOCATION : (data)=>dispatch({type:'CURRENT_LOCATION',payload:data})
     }
 }
 export default withRouter(connect(mapStateToProps,matchDispatchToProps)(Navbar));

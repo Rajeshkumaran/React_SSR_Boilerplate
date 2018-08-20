@@ -17,30 +17,24 @@
     opacity:0.1;
 }
 @keyframes fallDown{
-    0%{
-        top:-250px;
+    from{
+       
         opacity:0.1;
     }
-    50%{
-        top:-125px;
-        opacity:0.3;
-    }
-    100%{
-        top:0px;
+   
+    to{
+       
         opacity:1;
     }
 }
 @keyframes goUp{
-    0%{
-        top:0px;
+    from{
+      
         opacity:1;
     }
-    50%{
-        top:-125px;
-        opacity:0.3;
-    }
-    100%{
-        top:-250px;
+   
+    to{
+       
         opaccity:0.1;
     }
 }
