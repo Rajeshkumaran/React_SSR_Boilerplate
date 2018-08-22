@@ -10,23 +10,106 @@
     border: 1px solid white;
     box-shadow: -2px 2px 3px grey;
     z-index: 1;
-    background: white;
+    background: whitesmoke;
     opacity: 1; 
+    
 }
 .open{
     width:50%;
+    padding:10px;
+    animation : open 0.4s linear;
+}
+@keyframes open{
+    from{
+        width:0%;
+
+    }
+    to{
+        width:50%;
+    }
 }
 
 .close{
     width:0%;
+    padding:0px;
+    /* animation : close 0.4s linear; */
+    transition : width 0.4s linear;
 }
+
+
 .ViewReplies_Header{
     position: relative;
     text-align: center;
     top: 20px;
     padding-right: 10px;
 }
+.ViewReplies_CloseButton{
+    position: relative;
+    left:40%;
+    background: none;
+    border:none;
+}
+.ViewReplies_MyPostDiv{
+    position: relative;
+    top: 50px;
+    border: 1px solid black;
+    padding: 20px;
+    box-shadow: 0px 1px 3px black;
+}
+.ViewReplies_MyPostDateDiv{
+    font-size: 12px;
+}
+.ViewReplies_MyPostContentDiv{
+    padding-top: 12px;
+    height: 70px;
+    overflow-x: hidden;
+}
+.ViewReplies_MyPostContentDiv:hover{
+    overflow-x: scroll;
+}
 
+.ViewReplies_RepliesDiv{
+    position: relative;
+    top:60px;
+    height: 220px;
+    border: 1px solid black;
+    box-shadow: 4px 2px 3px grey,-3px 2px 3px grey ;
+    padding: 5px;
+}
+/* .ViewReplies_RepliesDiv:hover{
+    overflow-y: scroll;
+} */
+.ViewReplies_RepliesTitle{
+    text-align: center;
+    /* border:1px solid black; */
+}
+.ViewReplies_RepliesContentDiv{
+    /* border: 1px solid black; */
+    padding: 15px;
+    font-size: 15px;
+    
+    
+}
+.ViewReplies_RepliesContentDiv:hover{
+    overflow-x:scroll;
+}
+.ViewReplies_RepliesContent{
+    position: relative;
+    padding: 10px;
+    /* border: 1px solid black; */
+    overflow-y:scroll;
+    margin: 10px;
+    height:160px;
+    background:white;
+    box-shadow: 0px 2px 3px grey;
+    
+    
+}
+.ViewReplies_IndividualReplyContent{
+ 
+    padding: 13px;
+   
+}
 .SentRequestsDiv{
    
     border: 1px solid white;

@@ -24,7 +24,18 @@ const app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json())
 app.use(cors());
-app.use(cookieparser())
+app.use(cookieparser());
+var uid = require('uid-safe');
+var redis = require('redis');
+var redis_client = redis.createClient();
+
+redis_client.on('error',()=>{
+    console.log('Error on connecting to redis server');
+})
+redis_client.on('connect',()=>{
+    console.log('Connected to redis');
+})
+
 const AllReducers = combineReducers({
     MainReducer: MainReducer,
     PageHitReducer: PageHitReducer,
@@ -88,6 +99,11 @@ app.post('/LoginAuthenticate', (req, res) => {
 
 })
 app.get("*", (req, res) => {
+
+ 
+    var SessionID = uid.sync(18)
+    console.log('SessionId : ',SessionID);
+    redis_client.hset('Sessions','SessionID',SessionID,redis.print);
     const store = createStore(AllReducers)
     console.log('Server log - Cookies : ', req.cookies);
     // console.log('Req  params',req.url,req.params,req.query);
@@ -125,7 +141,7 @@ app.get("*", (req, res) => {
 
 
         const preloaded_State = store.getState();
-        console.log('PreLoaded state : ', preloaded_State)
+     //   console.log('PreLoaded state : ', preloaded_State)
         const html = renderToString(<App url={req.url} storedata={store} initial_data={preloaded_State} />)
         //     res.send(`<html>
         //     <head>

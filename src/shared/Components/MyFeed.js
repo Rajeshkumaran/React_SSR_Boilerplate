@@ -17,7 +17,7 @@ class MyFeed extends React.Component{
             </div>
             <div className='SentRequest_ControlsDiv'>
                 <button className='SentRequest_EditButton'>Edit</button>
-                <button className='SentRequest_ViewReplyButton' onClick={this.props.clickhandler.bind(this,1,this.props.data.PostContent)}>View Replies</button>
+                <button className='SentRequest_ViewReplyButton' onClick={this.props.clickhandler.bind(this,1,this.props.data)}>View Replies</button>
             </div>
             <div className='SentRequest_ViewRepliesDiv'>
 

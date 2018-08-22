@@ -9,7 +9,7 @@ app.use(cors());
 app.post('/MyRequests_DataHandler',(req,res)=>{
 
     console.log('In MyRequest_DataHandler ',req.body)
-    fetch('http://localhost:1337/userinfo/'+req.body.UserId)
+    fetch('http://localhost:1337/postdetails/?userinfo='+req.body.UserId)
     .then(response => response.json())
     .then((data)=>{
         console.log('Inside MyRequest_DataHandler ',data);

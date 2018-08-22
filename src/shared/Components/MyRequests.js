@@ -36,26 +36,62 @@ class MyRequests extends React.Component{
         })
     }
 
+    Close = () =>{
+        this.setState({
+            openViewReply : 0
+        })
+    }
+
     render(){
-        console.log(this.props.SentRequestReducer.postdetails)
+        console.log(this.props.SentRequestReducer)
         var myposts;
-        this.props.SentRequestReducer.postdetails ?
-        myposts = this.props.SentRequestReducer.postdetails.map((value)=>{
+        this.props.SentRequestReducer ?
+        myposts = this.props.SentRequestReducer.map((value)=>{
             return <MyFeed data={value} clickhandler={this.ViewReply}/>
         }):null
 
+
+        var replies=null;
+        this.state.ViewReply_Content?
+        replies = this.state.ViewReply_Content.replies.length==0?<div>No replies</div>
+        :this.state.ViewReply_Content.replies.map((reply)=>{
+           console.log("inside reply : ",reply)
+            return <div className='ViewReplies_IndividualReplyContent'>
+            <div style={{width: '30px',height: '30px',display: 'inline-block',border: '1px solid black'}}><img style={{width:'27px',height:'27px'}} src='https://ssl.gstatic.com/s2/profiles/images/silhouette96.png'/></div>
+            <div style={{'font-size': '11px',left: '2px',top: '-15px',display: 'inline',position: 'relative'}}>{reply.SenderName}</div>
+            <div style={{color:'#989ca5',display: 'inline','font-size': '11px','position': 'relative',left: '-30px'}}>{reply.ReplyDate}</div>
+            <div className='ViewReplies_RepliesContentDiv'>{reply.ReplyContent}</div>
+            <div style={{padding: '15px'}}>https://localhost:3010/filename</div>
+             </div>
+            
+
+        }) : console.error('View REply Content error : in MyRequest.js')
+
+        console.log('ViewReply_Content : ',this.state.ViewReply_Content)
+       
         return(
             <div className='MyPostDiv'>
                 {myposts}
                 <div className={['ViewReplies_Div',this.state.openViewReply==1?'open' : 'close'].join(' ')}>
                     <div className='ViewReplies_Header'>
-                        <span>View  Replies</span>
-                        <button><img style={{width:'15px',height:'15px'}} src='/assets/images/close.png'/></button>
+                        <span style={{color:'blue'}}>View  Replies</span>
+                        <button className='ViewReplies_CloseButton' onClick={this.Close}><img style={{width:'15px',height:'15px'}} src='/assets/images/close.png'/></button>
                     </div>
-                    <div className='ViewReplies_Content'>
-                        {this.state.ViewReply_Content}
+                    <div className='ViewReplies_MyPostDiv'>
+                        <div className='ViewReplies_MyPostDateDiv'>Mon Aug 19,2018</div>
+                        <div className='ViewReplies_MyPostContentDiv'>{this.state.ViewReply_Content.PostContent}</div>
+                    
+                    </div>
+                    <div className='ViewReplies_RepliesDiv'>
+                        <div className='ViewReplies_RepliesTitle'>
+                            Replies
+                        </div>
+                        <div className='ViewReplies_RepliesContent'>
+                            {replies}
+                        </div>
                     </div>
                 </div>
+               
             </div>
         )
     }

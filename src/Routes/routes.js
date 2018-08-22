@@ -24,7 +24,7 @@ const routes = [
     path: '/MyRequests',
     actiontype:'SENT_REQUESTS',
     pagehit_action:'/MYREQUESTS',
-    fetch_Page:(params)=>fetch('http://localhost:1337/userinfo/'+params).then(response=>response.json()).catch((error)=>console.log(error))
+    fetch_Page:(params)=>fetch('http://localhost:1337/postdetails/?userinfo='+params).then(response=>response.json()).catch((error)=>console.log(error))
 
 
 },
