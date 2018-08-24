@@ -29,7 +29,7 @@ const items = function(state=initial_state,action){
             return new_state;
            
             break;
-
+        
     }
     return state;
 

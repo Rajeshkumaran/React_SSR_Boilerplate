@@ -1,0 +1,116 @@
+
+.MyAccount_Aside{
+    width: 25%;
+    border: 1px solid black;
+    height: 100%;
+    position: fixed;
+    top: 40px;
+    box-shadow: 2px 0px 3px black;
+}
+.MyAccount_Header{
+    text-align: center;
+    position: relative;
+    top: 20px;
+}
+.MyAccount_HeaderDp{
+    width: 69px;
+    height: 70px;
+    border-radius: 50%;
+    border: 1px solid black;
+}
+.MyAccount_Followers{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    position: relative;
+    top: 40px;
+}
+.MyAccount_FollowersSpan{
+    display: inline-block;
+    text-align: center;
+}
+.MyAccount_FollowersCount{
+  
+    height: 30px;
+    padding: 2px;
+   
+}
+.MyAccount_FollowersCount span{
+    border-radius: 20%;
+    padding: 5px;
+    font-size: 14px;
+    position: relative;
+    color: #00a8df;
+    border: 1px solid #00a8df;
+}
+.MyAccount_AdditionalInfoDiv{
+    border-top: 1px solid black;
+    border-bottom:1px solid black;
+    position: relative;
+    top: 70px;
+    list-style-type: none;
+    
+  
+}
+.MyAccount_AdditionalInfoDiv span{
+    position: relative;
+    margin: 10px;
+    padding: 5px;
+    cursor: pointer;
+    display: inline-block;
+}
+.MyAccount_Line{
+    height:1px;
+    background: black;
+}
+.MyAccount_ProfileDetails_Title{
+    font-size: 22px;
+    color:#00a8df;
+}
+.MyAccount_ProfileDetails_Content{
+    position: relative;
+    top:30px;
+}
+.MyAccount_ProfileDetails{
+    border: 1px solid white;
+    left: 27%;
+    position: fixed;
+    top: 60px;
+    width: 70%;
+    z-index: 0;
+    height: 100%;
+    
+}
+.MyAccount_Profile_IndividualDiv{
+    border:1px solid white;
+    padding:10px;
+    box-shadow:0px 2px 3px grey;
+   
+
+}
+.MyAccount_Profile_IndividualData{
+    position: relative;
+    width: 250px;
+    display: inline-block;
+    
+    
+}
+.MyAccount_Profile_IndividualTitle{
+    width: 300px;
+    position: relative;
+    display: inline-block;
+}
+.MyAccount_ProfileEditButton{
+    float: right;
+    height: 15px;
+    width: 15px;
+    cursor: pointer;
+}
+.MyAccount_ProfileDetails_SaveChangesButton{
+    float: right;
+    border:1px solid #00a8df;
+    border-radius: 10px;
+    padding:3px;
+    font-size:18px;
+    cursor: pointer;
+
+}

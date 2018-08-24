@@ -14,19 +14,12 @@ class MyRequests extends React.Component{
     }
     componentDidMount(){
        // console.log(this.props.LoginReducer.UserId)
-       this.props.LoginReducer.isAuthenticated == 'true' ?
-       this.props.PageHitReducer['VISITED_MYREQUESTS'] == 0?
-        fetch('/MyRequests_Data',{
-            method:'POST',
-            headers:{
-                'Content-type':'application/json'
-            },
-            body:JSON.stringify(this.props.LoginReducer)
-        }).then(res=>res.json()).then(data=>{
-            //console.log('got it :',data)
-            this.props.SENT_REQUESTS(data);
-        }).catch(error=>error):null
-        :null
+       this.props.LoginReducer.isAuthenticated == true ?
+            console.log('Component Did mount in MyRequests called ... already logged in')
+        :(
+
+            console.log('Component Did mount in MyRequests called ... not logged in')
+        )
     }
     ViewReply = (check,event) =>{
         console.log('ViewReply called',event);
@@ -45,10 +38,10 @@ class MyRequests extends React.Component{
     render(){
         console.log(this.props.SentRequestReducer)
         var myposts;
-        this.props.SentRequestReducer ?
+        this.props.SentRequestReducer.length ==0 ?myposts=<div>{"You didn't posted any request yet"}</div>:
         myposts = this.props.SentRequestReducer.map((value)=>{
             return <MyFeed data={value} clickhandler={this.ViewReply}/>
-        }):null
+        })
 
 
         var replies=null;
@@ -65,9 +58,9 @@ class MyRequests extends React.Component{
              </div>
             
 
-        }) : console.error('View REply Content error : in MyRequest.js')
+        }) : console.warn('No View Reply Content : in MyRequest.js')
 
-        console.log('ViewReply_Content : ',this.state.ViewReply_Content)
+        // console.log('ViewReply_Content : ',this.state.ViewReply_Content)
        
         return(
             <div className='MyPostDiv'>

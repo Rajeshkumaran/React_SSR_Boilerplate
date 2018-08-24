@@ -1,5 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import MyAccount from './MyAccount';
 require('../Styles/login.web.css')
 class LoginUI extends React.Component {
 
@@ -68,6 +69,7 @@ class LoginUI extends React.Component {
 
         return (
 
+            this.props.LoginReducer.isAuthenticated == false ?
             <div className={this.state.active==1?'LoginContainer-active':'LoginContainer-inactive'}>
                 <div id='LoginCloseDiv'>
                     <button id='LoginClose' onClick = {this.Close}>&#x2716;</button>
@@ -87,6 +89,8 @@ class LoginUI extends React.Component {
 
 
             </div>
+                :
+            <MyAccount />
         )
 
     }
@@ -96,10 +100,11 @@ class LoginUI extends React.Component {
 
 }
 function mapStateToProps(state){
+    console.log('Inside mapStateToProps of Login_UI',state)
     return{
         MainReducer:state.MainReducer,
         PageHitReducer:state.PageHitReducer,
-        
+        LoginReducer : state.LoginReducer,
         SentRequestReducer : state.SentRequestReducer
     }
 }

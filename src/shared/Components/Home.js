@@ -12,7 +12,11 @@ class Home extends React.Component{
     }
     componentDidMount(){
 
-//        console.log("component did mount in Home",this.props)
+       console.log("component did mount in Home",this.props)
+
+        setTimeout(()=>{
+            this.props.TEST({'Tested':'ok'});
+        },5000)
 
          this.props.PageHitReducer['VISITED_HOME']==0 ? console.log('HOME VISITED :0') : console.log('HOME VISITED :1')  
              //      this.props.CURRENT_LOCATION(window.location.href);
@@ -47,7 +51,7 @@ function mapStateToProps(state){
 }
 function matchDispatchToProps(dispatch){
     return{
-      //  CURRENT_LOCATION : (data)=>dispatch({type:'CURRENT_LOCATION',payload:data})
+       //  CURRENT_LOCATION : (data)=>dispatch({type:'CURRENT_LOCATION',payload:data})
     }
 }
 export default connect(mapStateToProps,matchDispatchToProps)(Home);

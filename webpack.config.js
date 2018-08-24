@@ -45,7 +45,7 @@ module.exports = {
              
               {
                   loader: "css-loader",
-                  options: {  includePaths: [path.resolve("src/shared/Styles"),]}
+                //  options: {  includePaths: [path.resolve("src/shared/Styles"),]}
           
               }
            ]
@@ -57,7 +57,7 @@ module.exports = {
               
               {
                   loader: "css-loader",
-                  options: {  includePaths: [path.resolve("src/shared/Styles"),]}
+                 // options: {  includePaths: [path.resolve("src/shared/Styles"),]}
           
               }
            ]
