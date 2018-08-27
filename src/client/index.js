@@ -10,11 +10,13 @@ import MainReducer from '../shared/Reducers/MainReducer';
 import PageHitReducer from '../shared/Reducers/PageHitReducer';
 import LoginReducer from '../shared/Reducers/LoginReducer';
 import SentRequestReducer from '../shared/Reducers/SentRequestReducer';
+import PersonalInfoReducer from '../shared/Reducers/PersonalInfoReducer';
  const AllReducers = combineReducers({
   MainReducer : MainReducer,
   PageHitReducer : PageHitReducer,
   LoginReducer :LoginReducer,
-  SentRequestReducer : SentRequestReducer
+  SentRequestReducer : SentRequestReducer,
+  PersonalInfoReducer : PersonalInfoReducer
 })
 console.log('Preloaded state : ',window.__PRELOADED_STATE__)
 const store = createStore(AllReducers,window.__PRELOADED_STATE__)

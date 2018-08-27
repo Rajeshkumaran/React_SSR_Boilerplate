@@ -6,6 +6,17 @@ const app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(cors());
+app.post('/PersonalInfo_Handler',(req,res)=>{
+    console.log('In PersonalInfo_Handler ',req.body)
+    fetch('http://localhost:1337/userprivacy/?UserId='+req.body.UserId)
+    .then(response => response.json())
+    .then((data)=>{
+        console.log('Inside PersonalInfo_Handler ',data[0]);
+        res.send(data[0]);
+    }).catch((error)=>{
+        console.log('Error in Inside PersonalInfo_Handler',error);
+    })
+})
 app.post('/MyRequests_DataHandler',(req,res)=>{
 
     console.log('In MyRequest_DataHandler ',req.body)
@@ -20,8 +31,6 @@ app.post('/MyRequests_DataHandler',(req,res)=>{
 
 })
 app.post('/LoginAuthenticator', (req, res) => {
-    
-
 
     fetch(`http://localhost:1337/userprivacy?MailId=${req.body.MailId}`)
         .then(response => response.json())
@@ -68,4 +77,5 @@ app.post('/PostRequest_Handler',(req,res)=>{
         console.log('Error in Inside PostRequest_Handler',error);
     })
 })
+
 app.listen(3015, () => { console.log('Listening on port 3015') })

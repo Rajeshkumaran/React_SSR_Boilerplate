@@ -1,6 +1,7 @@
 import React from 'react';
 import Feeds from './Feeds';
 import {connect} from 'react-redux';
+import Loader from './Loader';
 import date from 'date-and-time';
 
 require('../Styles/home.web.css')
@@ -14,9 +15,7 @@ class Home extends React.Component{
 
        console.log("component did mount in Home",this.props)
 
-        setTimeout(()=>{
-            this.props.TEST({'Tested':'ok'});
-        },5000)
+      
 
          this.props.PageHitReducer['VISITED_HOME']==0 ? console.log('HOME VISITED :0') : console.log('HOME VISITED :1')  
              //      this.props.CURRENT_LOCATION(window.location.href);
@@ -34,6 +33,7 @@ class Home extends React.Component{
         return(
             <div id='home'>
                 No new Feeds to display
+                <Loader/>
             </div>
 
         );

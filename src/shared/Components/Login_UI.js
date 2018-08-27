@@ -35,6 +35,12 @@ class LoginUI extends React.Component {
   
 
     }
+    componentWillMount(){
+
+        console.log('In Component Will mount in Login_UI component',this.props);
+     
+
+    }
     componentDidUpdate(){
         
         this.state.active ==0 ? setTimeout(()=>this.props.history.goBack(),400 ): console.log('Component Did Update called ',this.state.active)
@@ -105,13 +111,15 @@ function mapStateToProps(state){
         MainReducer:state.MainReducer,
         PageHitReducer:state.PageHitReducer,
         LoginReducer : state.LoginReducer,
-        SentRequestReducer : state.SentRequestReducer
+        SentRequestReducer : state.SentRequestReducer,
+        PersonalInfoReducer: state.PersonalInfoReducer
     }
 }
 function matchDispatchToProps(dispatch){
     return{
         AUTHENTICATION : (data)=>dispatch({type:'LOGIN_AUTHENTICATION',payload:data}),
-        SENT_REQUESTS : (data)=>dispatch({type:'SENT_REQUESTS',payload:data})
+        SENT_REQUESTS : (data)=>dispatch({type:'SENT_REQUESTS',payload:data}),
+        PERSONAL_INFO : (data)=>dispatch({type:'PERSONAL_INFO',payload:data})
     }
 }
 export default connect(mapStateToProps,matchDispatchToProps)(LoginUI);

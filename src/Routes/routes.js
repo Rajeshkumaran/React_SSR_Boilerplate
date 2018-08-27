@@ -15,10 +15,10 @@ const routes = [
 },
 {
     path: '/Login',
-    actiontype:'SENT_REQUESTS',
+    actiontype:'PERSONAL_INFO',
     fetch_Page:(UserId)=>{
         if(UserId)
-        return fetch('http://localhost:1337/postdetails/?userinfo='+UserId).then(response=>response.json()).catch((error)=>console.log(error))
+        return fetch('http://localhost:1337/userprivacy/?UserId='+UserId).then(response=>response.json()).catch((error)=>console.log(error))
         else
         {
            return new Promise(resolve=>{

@@ -16,6 +16,7 @@ import { createStore } from 'redux';
 import MainReducer from '../shared/Reducers/MainReducer';
 import PageHitReducer from '../shared/Reducers/PageHitReducer';
 import LoginReducer from '../shared/Reducers/LoginReducer';
+import PersonalInfoReducer from '../shared/Reducers/PersonalInfoReducer';
 import SentRequestReducer from '../shared/Reducers/SentRequestReducer';
 import { combineReducers } from 'redux';
 import bodyParser from 'body-parser';
@@ -41,11 +42,33 @@ const AllReducers = combineReducers({
     MainReducer: MainReducer,
     PageHitReducer: PageHitReducer,
     LoginReducer: LoginReducer,
-    SentRequestReducer: SentRequestReducer
+    SentRequestReducer: SentRequestReducer,
+    PersonalInfoReducer : PersonalInfoReducer
 })
 
 app.use('/assets', express.static('assets'));
 app.use('/test', express.static('build'));
+app.post('/PersonalInfo_Request',(req,res)=>{
+    console
+    fetch('http://localhost:3015/PersonalInfo_Handler', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(req.body)
+    })
+        .then(res => res.json())
+        .then((data) => {
+            console.log('PersonalInfoRequest_Handle :', data)
+            var Obj = [{
+                UserName : data.UserName,
+                MobileNumber : data.MobileNumber,
+                MailId:data.MailId,
+                DateOfBirth : data.DateOfBirth
+            }]
+            res.send(Obj)
+        }).catch(error => error)
+})
 app.post('/PostRequest_Handle', (req, res) => {
     fetch('http://localhost:3015/PostRequest_Handler', {
         method: 'POST',
