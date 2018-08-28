@@ -11,9 +11,9 @@ class MyAccount extends React.Component {
     }
     componentDidMount(){
         this.props.LoginReducer.isAuthenticated ==true ? 
-       setTimeout(()=>{
+      
        
-        (fetch('http://localhost:3010/PersonalInfo_Request',{
+        fetch('http://localhost:3010/PersonalInfo_Request',{
             method:'POST',
             headers:{
                 'Content-type':'application/json'
@@ -23,10 +23,8 @@ class MyAccount extends React.Component {
         }).then(res=>res.json()).then(data=>{
             console.log('In Component Will mount in Login_UI component  ',data);
                 this.props.PERSONAL_INFO(data);
-        }).catch(err=>console.log(err)))
+        }).catch(err=>console.log(err))
 
-
-       },2000)
        
         :null
     }

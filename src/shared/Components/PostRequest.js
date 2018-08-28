@@ -33,9 +33,9 @@ class PostRequest extends React.Component{
      //   console.log('Date checking .....\nnew Date() :',new Date(),'\nDate.now() : ',Date.now()+24*60*60*5*1000,'new DAte().now() : ',Date.now())
         console.log(DateFormat)
         console.log('isAuthenticated : ',this.props.LoginReducer.isAuthenticated)
-        if(this.props.LoginReducer.isAuthenticated == 'true')
+        if(this.props.LoginReducer.isAuthenticated == true)
         {
-            if(this.props.LoginReducer.UserId){
+             if(this.props.LoginReducer.UserId){
                 var  jsonData = {
                     PostDate : DateFormat,
                     PostContent : this.state.Content,
@@ -43,6 +43,7 @@ class PostRequest extends React.Component{
                         _id : this.props.LoginReducer.UserId
                     } 
                 }
+               
                 fetch('http://localhost:3010/PostRequest_Handle',{
                     method:'POST',
                     headers:{

@@ -88,7 +88,7 @@ class MyRequests extends React.Component {
                         <button className='ViewReplies_CloseButton' onClick={this.Close}><img style={{ width: '15px', height: '15px' }} src='/assets/images/close.png' /></button>
                     </div>
                     <div className='ViewReplies_MyPostDiv'>
-                        <div className='ViewReplies_MyPostDateDiv'>Mon Aug 19,2018</div>
+                        <div className='ViewReplies_MyPostDateDiv'>{this.state.ViewReply_Content.PostDate}</div>
                         <div className='ViewReplies_MyPostContentDiv'>{this.state.ViewReply_Content.PostContent}</div>
 
                     </div>

@@ -32,8 +32,17 @@
 .close{
     width:0%;
     padding:0px;
-    /* animation : close 0.4s linear; */
+    animation : close 0.4s linear;
     transition : width 0.4s linear;
+}
+@keyframes close{
+    from{
+        opacity:1;
+    }
+    to{
+        opacity:0.1;
+    
+    }
 }
 
 
