@@ -48,6 +48,15 @@ const AllReducers = combineReducers({
 
 app.use('/assets', express.static('assets'));
 app.use('/test', express.static('build'));
+app.post('/Search',(req,res)=>{
+    fetch('http://localhost:1337/userinfo/?UserName='+req.body.UserName)
+    .then(res=>res.json())
+    .then((data)=>{
+        console.log(data);
+        res.send(data);
+   
+    }).catch(err=>console.log(err));
+})
 app.post('/PersonalInfo_Request',(req,res)=>{
     console
     fetch('http://localhost:3015/PersonalInfo_Handler', {

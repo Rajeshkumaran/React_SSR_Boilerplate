@@ -1,0 +1,50 @@
+#SearchComponent_Div{
+position: fixed;
+top: 0;
+border: 1px solid orange;
+width: 100%;
+height: 100%;
+}
+
+#Searchbar{
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 40px;
+    animation: scale 0.7s linear;
+    display: inline;
+
+}
+@keyframes scale{
+    from{
+        transform: scaleX(0);
+    }
+    to{
+        transform: scaleX(1);
+    }
+}
+
+
+.Searchbar_span{    
+    background: white;
+    display: inline-block;
+    height: 100%;
+    position: relative;
+    vertical-align: top;
+
+}
+.searchInput{
+    width:97%;
+}
+.searchIcon{
+    width:3%;
+    text-align: center;
+    padding-top: 5px;
+}
+.SearchListsDiv{
+    position: absolute;
+    top: 40px;
+    border: 1px solid red;
+    width: 100%;
+}
