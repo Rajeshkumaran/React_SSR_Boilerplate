@@ -57,8 +57,7 @@ class Search extends React.Component{
     
         const SearchResults = this.state.searchResults ? this.state.searchResults.map((result)=>{
             return <li className='SearchResult_IndividualItem'>
-                <span><img style={{width:'20px',height:'20px'}} src={result.ProfilePicture}/></span>
-                <span>{result.UserName}</span>
+                <span className='SearchResult_IndividualItem_UserName'>{result.UserName}</span>
             </li>
         }) : null
 
@@ -67,11 +66,11 @@ class Search extends React.Component{
 
         <div id='Searchbar'>
             <span className='Searchbar_span searchInput'>
-            <input type='text' placeholder='search for  Friends' style={{'font-size':'20px',width:'100%',height:'100%',border:'1px solid transparent'}} onChange={this.onChangeHandler} value={this.state.searchText}/>
+            <input type='search' placeholder='search for  Friends' style={{'font-size':'17px',width:'100%',height:'100%',border:'1px solid transparent',outline:'none'}} onChange={this.onChangeHandler} value={this.state.searchText}/>
             </span>
-            <span className='Searchbar_span searchIcon' onClick={this.searchHandler}>
+            {/* <span className='Searchbar_span searchIcon' onClick={this.searchHandler}>
             <img src='/assets/images/search.png'/>           
-            </span>
+            </span> */}
         </div>
         <div className='SearchListsDiv'>
             {SearchResults}
