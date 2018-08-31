@@ -7,4 +7,4 @@ require('babel-polyfill');
   // Register plugin for runtime compilation
 babelRegister(options);
 // Server Driver Code, everything from here on can use all the super future ES6 features!
-module.exports = require('./index.js');
+module.exports = require('./elasticsearch_query.js');

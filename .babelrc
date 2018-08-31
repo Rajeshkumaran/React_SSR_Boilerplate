@@ -11,8 +11,10 @@
     ],
     ["react"],
     ["stage-2"]
+
   ],
   "plugins": [
+   
     ["add-module-exports"],
     ["transform-object-rest-spread"],
     [
@@ -26,6 +28,7 @@
   "env": {
     "node": {
       "plugins": [
+
         ["dynamic-import-node"],
         [
           "css-modules-transform",
@@ -43,7 +46,8 @@
       ]
     },
     "webpack": {
-      "plugins": ["syntax-dynamic-import"]
+      "plugins": ["syntax-dynamic-import"],
+      
     }
   }
 }

@@ -30,13 +30,15 @@ app.use(cookieparser());
 var uid = require('uid-safe');
 var redis = require('redis');
 var redis_client = redis.createClient();
-
 redis_client.on('error', () => {
     console.log('Error on connecting to redis server');
 })
 redis_client.on('connect', () => {
     console.log('Connected to redis');
 })
+
+//test();
+
 
 const AllReducers = combineReducers({
     MainReducer: MainReducer,
