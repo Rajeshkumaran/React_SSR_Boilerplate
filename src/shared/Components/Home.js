@@ -33,7 +33,7 @@ class Home extends React.Component{
         return(
             <div id='home'>
                 No new Feeds to display
-                <Loader/>
+               <Loader/>
             </div>
 
         );
